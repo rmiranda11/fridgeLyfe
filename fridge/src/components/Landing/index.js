@@ -4,7 +4,7 @@ function LandingPage() {
     return(
         <div>
             <h1>
-                Hello Baby World!
+                Hello World!
             </h1>
         </div>
     )
