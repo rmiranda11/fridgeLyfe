@@ -4,41 +4,73 @@ import { AuthUserContext } from "../Session"
 
 import * as ROUTES from "./../../constants/routes"
 import SignOutButton from "../SignOut"
+import * as ROLES from '../../constants/roles';
 
-// import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Button from 'react-bootstrap/Button';
+import NavDropdown from "react-bootstrap/NavDropdown"
+import Form from "react-bootstrap/Form"
+import FormControl from "react-bootstrap/FormControl"
 
 
 const Navigation = () => (
-  <div>
-    <Navbar bg="primary" variant="dark" style={{ backgroundColor: "red" }}>
-      <Navbar.Brand href="./">FridgeLyfe</Navbar.Brand>
-          <AuthUserContext.Consumer>
-      {authUser =>
-        authUser ? <NavigationAuth /> : <NavigationNonAuth />}
-    </AuthUserContext.Consumer>
-    </Navbar>
-
-  </div>
+  <AuthUserContext.Consumer>
+    {authUser =>
+      authUser ? (
+        <NavigationAuth authUser={authUser} />
+      ) : (
+        <NavigationNonAuth />
+      )
+    }
+  </AuthUserContext.Consumer>
 );
 
 
-const NavigationAuth = () => (
+const NavigationAuth = ({authUser}) => (
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">
     <Nav.Link href="./home">Home</Nav.Link>
     <Nav.Link href="./account">Account</Nav.Link>
-    <SignOutButton />
-  </Nav>
+    {authUser.roles.includes(ROLES.ADMIN) && (
+    <Nav.Link href="./admin">Admin</Nav.Link>
+    )}
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+      <SignOutButton />
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
 );
 
 const NavigationNonAuth = () => (
+<Navbar bg="light" expand="lg">
+  <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">
-    <Nav.Link href="./SignIn">Sign In</Nav.Link>
-  </Nav>
+  <Nav.Link href="./signin">Sign In</Nav.Link>
+    <Nav.Link href="./signup">Sign Up</Nav.Link>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
 );
 
 
-
-export default Navigation
+export default Navigation;

@@ -1,4 +1,5 @@
 import React from "react"
+import Food from "./Food"
 
 import { withAuthorization } from "../Session"
 
@@ -6,7 +7,7 @@ function HomePage() {
     return(
         <div>
             <h1>
-                This is the Home page is viewed only by the greatest
+                {/* <Food /> */}
             </h1>
         </div>
     )

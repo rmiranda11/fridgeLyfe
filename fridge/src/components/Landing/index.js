@@ -1,13 +1,22 @@
 import React from "react"
 
+import Jumbotron from "react-bootstrap/Jumbotron"
+import Button from "react-bootstrap/Button"
+
 function LandingPage() {
     return(
         <div>
-            <h1>
-                Hello World!
-            </h1>
+            <Jumbotron style={{backgroundColor:"#57467b"}}>
+                <h1 className="title d-flex justify-content-center">FridgeLyfe</h1>
+                <h3 className="sub-title d-flex justify-content-center">Don't spoil your fucking food</h3>
+                <div className="d-flex justify-content-center">
+                <Button href="./signin" variant="light" >Sign In</Button>
+                <Button href="./signup" variant="dark" >Sign Up</Button>
+                </div>
+            </Jumbotron>
         </div>
     )
 }
+
 
 export default LandingPage
