@@ -1,6 +1,7 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
+import * as ROLES from '../../constants/roles';
 
 
 const config = {
@@ -46,9 +47,9 @@ class Firebase {
          const dbUser = snapshot.val();
 
         //  default empty roles
-         if (!dbUser.roles) {
-           dbUser.roles = {};
-         }
+        //  if (!dbUser.roles) {
+        //    dbUser.roles = {};
+        //  }
 
          // merge auth and db user
          authUser = {
@@ -66,13 +67,20 @@ class Firebase {
 
   // *** User API ***
 
+  // userFood2 = (uid) => this.db.ref(`users/${uid}/food`)
+
+  // userFood = (uid) => this.db.ref(`users/${uid}`)
+
   user = uid => this.db.ref(`users/${uid}`);
 
   users = () => this.db.ref('users');
 
   //*** Food API */
 
-  food = uid => this.db.ref(`food/${uid}`)
+  userFood = (uid,itemId) => this.db.ref(`food/${uid}/${uid}`)
+
+  
+  food = (uid) => this.db.ref(`food/${uid}`)
 
   foods = () => this.db.ref("food")
 
