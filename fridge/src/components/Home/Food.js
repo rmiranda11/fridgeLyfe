@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import FoodComponent from "./FoodComponent"
 import { compose } from 'recompose';
+import FinalCountdown from "./Moment"
 
-
+import moment from 'moment';
 import { withFirebase } from "../Firebase"
 import { withAuthorization, AuthUserContext } from "../Session"
 import * as ROLES from '../../constants/roles';
@@ -29,43 +30,64 @@ class FoodBase extends Component {
             loading: false,
             food: [],
             authUser: '',
-            foodKey: ''
+            foodKey: '',
+            moment: ''
         }
+
+        this.TimeMatch = this.TimeMatch.bind(this)
     }
 
-    // ReadData = (authUser) => {
-    //     this.props.firebase.userFood(authUser).on("value", snapshot => {
-    //         const foodObj1 = snapshot.val()
-    //         console.log(foodObj1)
+    // 1. Subtract Time Stamp from todays date
 
-    //     })
-    // }
+
+    TimeMatch = (time, moments) => {
+        const now = moment(moments, "D, HH:mm")
+
+        const daysFromNow = now.clone().add(time - 1, 'd')
+        console.log(daysFromNow)
+
+
+        return (
+
+            <FinalCountdown timeTillDate={daysFromNow} timeFormat="D, HH:mm a" />
+
+        )
+    }
+
+
 
     onChangeText = event => {
-        this.setState({ text: event.target.value });
-    };
+        this.setState({ text: event.target.value })
+    }
 
     onChangeTime = event => {
+        const now = moment()
+        const nowString = JSON.stringify(now)
+        console.log(nowString)
+
+        const momentStr = nowString
         this.setState({ time: event.target.value })
+        this.setState({ moment: momentStr })
     }
 
 
     onCreateFoodItem = (event, authUser) => {
-        // var itemId = this.props.firebase.food(authUser.uid).push().key;
         this.props.firebase.food().push({
             text: this.state.text,
             userId: authUser.uid,
-            time: this.state.time
-        });
+            time: this.state.time,
+            moment: this.state.moment
+        })
 
         this.setState({
             text: '',
             authUser: authUser.uid,
-            time:''
-        });
+            time: '',
+            moment: ''
+        })
 
         event.preventDefault();
-    };
+    }
 
 
 
@@ -73,12 +95,9 @@ class FoodBase extends Component {
 
         this.setState({ loading: true })
 
-        // this.props.firebase.food().on("value", snapshot => {
-
 
         this.props.firebase.food().on("value", snapshot => {
             const foodObj = snapshot.val()
-            console.log(foodObj)
             if (foodObj) {
 
                 const foodList = Object.keys(foodObj).map(key => ({
@@ -103,40 +122,22 @@ class FoodBase extends Component {
     componentWillUnmount() {
         this.props.firebase.food().off()
     }
-    x
+
+    onRemoveFood = uid => {
+        console.log("clicked")
+        this.props.firebase.food(uid).remove();
+      };
+
     render() {
         const { text, food, loading, time } = this.state;
 
-        const dateToFormat = '1976-04-19T12:59-0500';
-
-        // food.map(item => {
-        //     const itemID = item.userId
-        //     const userID = authUser.uid
-        //     const foodItem = item.text
-
-        //     if (itemID === userID) {
-        //         // console.log(foodItem)
-
-        //         return (
-        //             <div>
-        //                 <h2 key={item.uid}>{foodItem}</h2>
-        //             </div>
-        //         )
-        // })
-
-        // const foodData = FoodComponent 
-        // const updatedList = foodData.map(item => 
-        //     <FoodComponent 
-        //         key={item.userId}
-        //     />)
 
         return (
-            
+
             <AuthUserContext.Consumer>
                 {authUser => (
                     <div>
-                                <Moment>{dateToFormat}</Moment>
-
+                        {/* <FinalCountdown timeTillDate="07 18 2020, 6:00 am" timeFormat="MM DD YYYY, h:mm a" /> */}
                         {loading && <div>Loading...</div>}
                         {food ? (
                             <table>
@@ -146,38 +147,51 @@ class FoodBase extends Component {
                                         <th>Time Left</th>
                                     </tr>
                                 </thead>
-                                    {
-                                        food.map(item => {
-                                            const itemID = item.userId
-                                            const userID = authUser.uid
-                                            const foodItem = item.text
-                                            const itemTime = item.time
+                                {
+                                    food.map(item => {
+                                        const itemID = item.userId
+                                        const userID = authUser.uid
+                                        const foodItem = item.text
+                                        const itemTime = item.time
+                                        const moment = item.moment
+                                        console.log(item.uid)
 
-                                            const FoodItem = () => (
-                                                <td>
-                                                    {foodItem}
-                                                </td>
-                                            )
+                                        const FoodItem = (onRemoveFood) => (
+                                            <td>
+                                                {foodItem}
+                                            </td>
+                   
+                                        )
 
-                                            if (itemID === userID) {
+                                        if (itemID === userID) {
 
-                                                return (
-                                                    <tbody key={item.uid}>
+                                            return (
+                                                <tbody key={item.uid}>
 
                                                     <tr key={item.uid}>
                                                         <FoodItem
                                                             key={item.uid}
                                                             food={item}
-                                                        />
-                                                         <td>{itemTime}</td>
-                                                    </tr>
-                                                    </tbody>
+                                                            onRemoveFood={this.onRemoveFood}
 
-                                                )
-                                            }
-                                        })
-                                    }
-                                    
+                                                        />
+                                                        <td>{this.TimeMatch(itemTime, moment)}</td>
+                                                        <td>
+
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => this.onRemoveFood(item.uid)}
+                                                            >
+                                                                Delete
+                                                            </button></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            )
+                                        }   
+                                    })
+                                }
+
                             </table>
 
                         ) : (
@@ -185,19 +199,25 @@ class FoodBase extends Component {
                             )}
 
 
-                        <form onSubmit={event => this.onCreateFoodItem(event, authUser)}>
+                        <form
+                            name="foodForm"
+                            onSubmit={event => this.onCreateFoodItem(event, authUser)}>
                             <input
+                                name="food"
                                 placeholder="Food"
                                 type="text"
                                 value={text}
                                 onChange={this.onChangeText}
+                                required={true}
                             />
                             <br />
                             <input
+                                name="time"
                                 placeholder="Time"
                                 type="text"
                                 value={time}
                                 onChange={this.onChangeTime}
+                                required={true}
                             />
                             <button type="submit">Add Item</button>
                         </form>
@@ -207,6 +227,14 @@ class FoodBase extends Component {
         )
     }
 }
+
+// const Validate = (foodForm) => {
+//     if(foodForm.food.value === "" || foodForm.time.value === ""){
+//         return false
+//     }else{
+//         return 
+//     }
+// }
 
 
 
@@ -241,7 +269,6 @@ class FoodBase extends Component {
 
 
 const Foods = withFirebase(FoodBase)
-// const  Foods = withAuthorization(Foods1)
 
 const condition = authUser => !!authUser;
 
@@ -251,4 +278,3 @@ export default compose(
     withFirebase,
 )(HomePage);
 
-// export default HomePage
