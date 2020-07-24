@@ -17,17 +17,21 @@ function FinalCountdown(props) {
     useEffect(() => {
         setInterval(() => {
             const { timeTillDate, timeFormat } = props
+            // console.log(timeTillDate)
             const then = moment(timeTillDate, timeFormat).clone()
+            // console.log(then)
             const now = moment().clone()
+            // console.log(now)
             const countdown = moment(then - now)
+            // console.log(countdown)
             const days = countdown.format('D');
-            const hours = countdown.format('HH');
-            const minutes = countdown.format('mm');
-            const seconds = countdown.format('ss');
+            const hours = countdown.format('kk');
+            // const minutes = countdown.format('mm');
+            // const seconds = countdown.format('ss');
             setDays(days)
             setHours(hours)
-            setMinutes(minutes)
-            setSeconds(seconds)
+            // setMinutes(minutes)
+            // setSeconds(seconds)
         }, 1000)
     }, [])
 
@@ -43,10 +47,10 @@ function FinalCountdown(props) {
                 {hours && (
                     <div className="countdown-item">
                         {hours}
-                        <span>hours</span>
+                        <span>{hours > 1 ? "hours" : "hour"}</span>
                     </div>
                 )}
-                {minutes && (
+                {/* {minutes && (
                     <div className="countdown-item">
                         {minutes}
                         <span>minutes</span>
@@ -57,7 +61,7 @@ function FinalCountdown(props) {
                         {seconds}
                         <span>seconds</span>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     )

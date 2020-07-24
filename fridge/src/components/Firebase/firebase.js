@@ -77,7 +77,7 @@ class Firebase {
 
   //*** Food API */
 
-  userFood = (uid,itemId) => this.db.ref(`food/${uid}/${uid}`)
+  userFood = (uid,itemId) => this.db.ref(`food/undefined/${uid}`)
 
   
   food = (uid) => this.db.ref(`food/${uid}`)

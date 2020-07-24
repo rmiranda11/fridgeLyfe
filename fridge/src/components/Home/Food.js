@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import FoodComponent from "./FoodComponent"
+import Checkbox from "./CheckboxComponent"
 import { compose } from 'recompose';
 import FinalCountdown from "./Moment"
 
@@ -8,8 +8,7 @@ import { withFirebase } from "../Firebase"
 import { withAuthorization, AuthUserContext } from "../Session"
 import * as ROLES from '../../constants/roles';
 
-import Moment from 'react-moment';
-
+import Presets from "./PreSets"
 
 const HomePage = () => (
     <div>
@@ -31,47 +30,66 @@ class FoodBase extends Component {
             food: [],
             authUser: '',
             foodKey: '',
-            moment: ''
+            moment: '',
         }
 
-        this.TimeMatch = this.TimeMatch.bind(this)
     }
 
-    // 1. Subtract Time Stamp from todays date
 
-
-    TimeMatch = (time, moments) => {
-        const now = moment(moments, "D, HH:mm")
-
-        const daysFromNow = now.clone().add(time - 1, 'd')
-        console.log(daysFromNow)
+    TimeMatch = (itemTime, moments) => {
+        const now = moment(moments, "YYYY MM DD, HH:mm:ss")
+        console.log(now);
+        const daysFromNow = now.add(itemTime - 1, 'd').add(6, 'h')
 
 
         return (
 
-            <FinalCountdown timeTillDate={daysFromNow} timeFormat="D, HH:mm a" />
+            <FinalCountdown timeTillDate={daysFromNow} timeFormat="YYYY MM DD, HH:mm:ss" />
 
         )
     }
-
-
 
     onChangeText = event => {
         this.setState({ text: event.target.value })
     }
 
     onChangeTime = event => {
-        const now = moment()
-        const nowString = JSON.stringify(now)
-        console.log(nowString)
+        const now = moment().format()
 
-        const momentStr = nowString
+        const momentStr = now
         this.setState({ time: event.target.value })
         this.setState({ moment: momentStr })
     }
 
+    // onFillPresets = event => {
+    //     this.setState({ presets: event.target.value })
+    //     console.log(event)
+    // }
+
+    // addToFoodDb = (event) => {
+    //     this.props.firebase.food().push({
+
+    //     })
+    // }
+
+    // handleCheckbox = event => {
+    //     const {name, value, type, checked} = event.target
+    //     const checkObj = {
+    //         [name]:checked
+    //     }
+
+    //     console.log(checkObj);
+    // }
+
+    // handleChange = (event) =>{
+    //     const {name, value, type, checked} = event.target
+    //     this.setState({
+    //         [name]: value
+    //     }) 
+    // }
 
     onCreateFoodItem = (event, authUser) => {
+
         this.props.firebase.food().push({
             text: this.state.text,
             userId: authUser.uid,
@@ -119,14 +137,16 @@ class FoodBase extends Component {
 
     }
 
+    onRemoveFood = uid => {
+        console.log(uid)
+        this.props.firebase.userFood(uid).remove();
+      };
+
     componentWillUnmount() {
         this.props.firebase.food().off()
     }
 
-    onRemoveFood = uid => {
-        console.log("clicked")
-        this.props.firebase.food(uid).remove();
-      };
+
 
     render() {
         const { text, food, loading, time } = this.state;
@@ -136,10 +156,12 @@ class FoodBase extends Component {
 
             <AuthUserContext.Consumer>
                 {authUser => (
-                    <div>
+                    <React.Fragment>
+                    
                         {/* <FinalCountdown timeTillDate="07 18 2020, 6:00 am" timeFormat="MM DD YYYY, h:mm a" /> */}
                         {loading && <div>Loading...</div>}
                         {food ? (
+                            <div>
                             <table>
                                 <thead>
                                     <tr>
@@ -154,9 +176,8 @@ class FoodBase extends Component {
                                         const foodItem = item.text
                                         const itemTime = item.time
                                         const moment = item.moment
-                                        console.log(item.uid)
-
-                                        const FoodItem = (onRemoveFood) => (
+                                        console.log(moment)
+                                        const FoodItem = () => (
                                             <td>
                                                 {foodItem}
                                             </td>
@@ -177,23 +198,32 @@ class FoodBase extends Component {
                                                         />
                                                         <td>{this.TimeMatch(itemTime, moment)}</td>
                                                         <td>
+                                                        
 
                                                             <button
-                                                                type="button"
-                                                                onClick={() => this.onRemoveFood(item.uid)}
+                                                                
                                                             >
                                                                 Delete
-                                                            </button></td>
+                                                            </button>
+                                                            <Button 
+                                                            variant="danger"
+                                                            key={item.uid}
+                                                            type="button"
+                                                            onClick={() => this.onRemoveFood(item.uid)}
+                                                            >X</Button>
+                                                            </td>
                                                     </tr>
-                                                </tbody>
-
+                                                </tbody> 
+                                                    
+ 
                                             )
                                         }   
                                     })
+                                    
                                 }
 
                             </table>
-
+                            </div>
                         ) : (
                                 <div>List is blank</div>
                             )}
@@ -221,7 +251,10 @@ class FoodBase extends Component {
                             />
                             <button type="submit">Add Item</button>
                         </form>
-                    </div>
+
+                        <Presets />
+
+                    </React.Fragment>
                 )}
             </AuthUserContext.Consumer>
         )
