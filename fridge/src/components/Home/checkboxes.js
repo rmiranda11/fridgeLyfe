@@ -5,26 +5,31 @@ const checkboxes = [
         key: 1,
         name:"Broccoli",
         value:10,
+        checked:false
     },
     {
         key: 2,
         name: "Beets",
-        value: 9
+        value: 9,
+        checked:false
     },
     {
         key:3,
         name:"Onions",
-        value: 15
+        value: 15,
+        checked:false
     },
     {
         key:4,
         name:"Potatoes",
-        value:12
+        value:12,
+        checked:false
     },
     {
         key:5,
         name:"Cilantro",
-        value:9
+        value:9,
+        checked:false
     }
 
 

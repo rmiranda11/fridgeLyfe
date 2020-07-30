@@ -8,7 +8,12 @@ import { withFirebase } from "../Firebase"
 import { withAuthorization, AuthUserContext } from "../Session"
 import * as ROLES from '../../constants/roles';
 
+import Button from "react-bootstrap/button"
+import Form from "react-bootstrap/form"
+
 import Presets from "./PreSets"
+import checkboxes from "./checkboxes"
+// import Checkbox from "./CheckboxComponent"
 
 const HomePage = () => (
     <div>
@@ -31,15 +36,67 @@ class FoodBase extends Component {
             authUser: '',
             foodKey: '',
             moment: '',
+            checkedItems: new Map(),
+            checkboxes: {},
+            checkboxData: checkboxes
         }
+
+        this.handleChange = this.handleChange.bind(this)
 
     }
 
 
+    handleChange(id,authUser) {
+       this.setState(prevState => {
+           const updatedData = prevState.checkboxData.map(item => {
+               if(item.key === id){
+                   item.checked = !item.checked
+               }
+               return item
+           })
+
+           return{
+               checkboxData:updatedData
+           }
+       })
+    }
+
+    // text: this.state.text,
+    // userId: authUser.uid,
+    // time: this.state.time,
+    // moment: this.state.moment
+
+    addToFoodDb = (event, authUser) => {
+
+        const immediateTime = moment().format()
+        const momentStr = immediateTime
+        this.setState({ moment: momentStr })
+
+        this.state.checkboxData.forEach(e => 
+
+            e.checked ?
+            this.props.firebase.food().push({
+                text:e.name,
+                userId: authUser.uid,
+                time:e.value,
+                moment:momentStr
+            })
+            :
+            null
+        )
+
+        event.preventDefault()
+    }
+    
+
+
     TimeMatch = (itemTime, moments) => {
         const now = moment(moments, "YYYY MM DD, HH:mm:ss")
-        console.log(now);
+
         const daysFromNow = now.add(itemTime - 1, 'd').add(6, 'h')
+                console.log(daysFromNow);
+
+        // const updaysFromNow = daysFromNow.sort((a, b) => (a.color > b.color) ? 1 : -1)
 
 
         return (
@@ -54,39 +111,15 @@ class FoodBase extends Component {
     }
 
     onChangeTime = event => {
-        const now = moment().format()
+        const immidiateTime = moment().format()
 
-        const momentStr = now
+        const momentStr = immidiateTime
         this.setState({ time: event.target.value })
         this.setState({ moment: momentStr })
     }
 
-    // onFillPresets = event => {
-    //     this.setState({ presets: event.target.value })
-    //     console.log(event)
-    // }
 
-    // addToFoodDb = (event) => {
-    //     this.props.firebase.food().push({
 
-    //     })
-    // }
-
-    // handleCheckbox = event => {
-    //     const {name, value, type, checked} = event.target
-    //     const checkObj = {
-    //         [name]:checked
-    //     }
-
-    //     console.log(checkObj);
-    // }
-
-    // handleChange = (event) =>{
-    //     const {name, value, type, checked} = event.target
-    //     this.setState({
-    //         [name]: value
-    //     }) 
-    // }
 
     onCreateFoodItem = (event, authUser) => {
 
@@ -123,6 +156,10 @@ class FoodBase extends Component {
                     uid: key,
                 }));
 
+
+                // const orderedList = foodList.sort((a, b) => (a.color > b.color) ? 1 : -1)
+
+
                 console.log(foodList)
 
                 this.setState({
@@ -140,7 +177,7 @@ class FoodBase extends Component {
     onRemoveFood = uid => {
         console.log(uid)
         this.props.firebase.userFood(uid).remove();
-      };
+    };
 
     componentWillUnmount() {
         this.props.firebase.food().off()
@@ -151,78 +188,71 @@ class FoodBase extends Component {
     render() {
         const { text, food, loading, time } = this.state;
 
-
+        console.log(this.state.checkboxData)
+  
         return (
 
             <AuthUserContext.Consumer>
                 {authUser => (
                     <React.Fragment>
-                    
+
                         {/* <FinalCountdown timeTillDate="07 18 2020, 6:00 am" timeFormat="MM DD YYYY, h:mm a" /> */}
                         {loading && <div>Loading...</div>}
                         {food ? (
                             <div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Items</th>
-                                        <th>Time Left</th>
-                                    </tr>
-                                </thead>
-                                {
-                                    food.map(item => {
-                                        const itemID = item.userId
-                                        const userID = authUser.uid
-                                        const foodItem = item.text
-                                        const itemTime = item.time
-                                        const moment = item.moment
-                                        console.log(moment)
-                                        const FoodItem = () => (
-                                            <td>
-                                                {foodItem}
-                                            </td>
-                   
-                                        )
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Items</th>
+                                            <th>Time Left</th>
+                                        </tr>
+                                    </thead>
+                                    {
+                                        food.map(item => {
+                                            const itemID = item.userId
+                                            const userID = authUser.uid
+                                            const foodItem = item.text
+                                            const itemTime = item.time
+                                            const moment = item.moment
+                                            // console.log(moment)
+                                            const FoodItem = () => (
+                                                <td>
+                                                    {foodItem}
+                                                </td>
 
-                                        if (itemID === userID) {
-
-                                            return (
-                                                <tbody key={item.uid}>
-
-                                                    <tr key={item.uid}>
-                                                        <FoodItem
-                                                            key={item.uid}
-                                                            food={item}
-                                                            onRemoveFood={this.onRemoveFood}
-
-                                                        />
-                                                        <td>{this.TimeMatch(itemTime, moment)}</td>
-                                                        <td>
-                                                        
-
-                                                            <button
-                                                                
-                                                            >
-                                                                Delete
-                                                            </button>
-                                                            <Button 
-                                                            variant="danger"
-                                                            key={item.uid}
-                                                            type="button"
-                                                            onClick={() => this.onRemoveFood(item.uid)}
-                                                            >X</Button>
-                                                            </td>
-                                                    </tr>
-                                                </tbody> 
-                                                    
- 
                                             )
-                                        }   
-                                    })
-                                    
-                                }
 
-                            </table>
+                                            if (itemID === userID) {
+
+                                                return (
+                                                    <tbody key={item.uid}>
+
+                                                        <tr key={item.uid}>
+                                                            <FoodItem
+                                                                key={item.uid}
+                                                                food={item}
+                                                                onRemoveFood={this.onRemoveFood}
+
+                                                            />
+                                                            <td>{this.TimeMatch(itemTime, moment)}</td>
+                                                            <td>
+
+                                                                <Button
+                                                                    variant="danger"
+                                                                    key={item.uid}
+                                                                    type="button"
+                                                                    onClick={() => this.onRemoveFood(item.uid)}
+                                                                >Delete</Button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                )
+                                            }
+                                        })
+
+                                    }
+
+                                </table>
                             </div>
                         ) : (
                                 <div>List is blank</div>
@@ -232,27 +262,70 @@ class FoodBase extends Component {
                         <form
                             name="foodForm"
                             onSubmit={event => this.onCreateFoodItem(event, authUser)}>
-                            <input
+
+                            <Form.Group className="foodInputBox">
+                                <Form.Control 
                                 name="food"
                                 placeholder="Food"
                                 type="text"
                                 value={text}
                                 onChange={this.onChangeText}
-                                required={true}
-                            />
-                            <br />
-                            <input
-                                name="time"
-                                placeholder="Time"
-                                type="text"
-                                value={time}
-                                onChange={this.onChangeTime}
-                                required={true}
-                            />
-                            <button type="submit">Add Item</button>
+                                // required={true}
+                                />
+                            </Form.Group>
+                            <Form.Group className="timeInputBox">
+                                <Form.Control 
+                                  name="time"
+                                  placeholder="Time"
+                                  type="text"
+                                  value={time}
+                                  onChange={this.onChangeTime}
+                                //   required={true}
+                                  disabled={time === 1 ? true : false}
+                                  />
+
+                            </Form.Group>
+
+                            <Button
+                                variant="outline-primary"
+                                type="submit"
+                            >Add Item</Button><br /><br />
+
+
                         </form>
 
-                        <Presets />
+                        <form
+                            name="checkboxform"
+                            onSubmit={event => this.addToFoodDb(event, authUser)}>
+                                
+                    
+                        {this.state.checkboxData.map(item =>(
+                            <label  key={item.key}  
+                            >
+                                <pre>
+                                    <Checkbox
+                                        key={item.key}
+                                        item={item} 
+                                        className="check-boxes" 
+                                        type="checkbox" 
+                                        name={item.name} 
+                                        value={item.value} 
+                                        checked={item.checked}
+                                        handleChange={this.handleChange}> 
+                                    </ Checkbox>
+                                 {item.name}
+                                 </pre>
+                            </label>
+                        ))
+                        }
+                        
+                    
+
+                        <Button
+                           variant="outline-primary"
+                           type="submit"
+                        >Add Items</Button>
+                        </form>
 
                     </React.Fragment>
                 )}

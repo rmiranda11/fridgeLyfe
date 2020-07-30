@@ -40,16 +40,16 @@ function FinalCountdown(props) {
             <div className="countdown-wrapper">
                 {days && (
                     <div className="countdown-item">
-                        {days}
-                <span>{days > 1 ? "days" : "day"  }</span>
+                        {days + " "}
+                <span>{days  > 1 ? " days" : " day"  }</span>
                     </div>
                 )}
-                {hours && (
+                {/* {hours && (
                     <div className="countdown-item">
                         {hours}
                         <span>{hours > 1 ? "hours" : "hour"}</span>
                     </div>
-                )}
+                )} */}
                 {/* {minutes && (
                     <div className="countdown-item">
                         {minutes}

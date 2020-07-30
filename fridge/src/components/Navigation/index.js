@@ -28,7 +28,7 @@ const Navigation = () => (
 
 
 const NavigationAuth = ({authUser}) => (
-<Navbar bg="light" expand="lg">
+<Navbar className="navbar" bg="light" expand="lg">
   <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
@@ -52,7 +52,7 @@ const NavigationAuth = ({authUser}) => (
 );
 
 const NavigationNonAuth = () => (
-<Navbar bg="light" expand="lg">
+<Navbar className="navbar"  expand="lg">
   <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
@@ -60,10 +60,6 @@ const NavigationNonAuth = () => (
   <Nav.Link href="./signin">Sign In</Nav.Link>
     <Nav.Link href="./signup">Sign Up</Nav.Link>
     </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-    </Form>
   </Navbar.Collapse>
 </Navbar>
 );
