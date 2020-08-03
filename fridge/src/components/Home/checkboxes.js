@@ -1,220 +1,489 @@
 
-const checkboxes = [
-    {
+const checkboxes = {
 
-        key: 1,
-        name:"Broccoli",
-        value:10,
-        checked:false
-    },
-    {
-        key: 2,
-        name: "Beets",
-        value: 9,
-        checked:false
-    },
-    {
-        key:3,
-        name:"Onions",
-        value: 15,
-        checked:false
-    },
-    {
-        key:4,
-        name:"Potatoes",
-        value:12,
-        checked:false
-    },
-    {
-        key:5,
-        name:"Cilantro",
-        value:9,
-        checked:false
-    }
+    fruits :[
+        {
+            key: 6,
+            name: "Apples",
+            value: 28,
+            checked: false
+        },
+        {
+            key: 7,
+            name: "Artichoke",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 8,
+            name: "Asparagus",
+            value: 4,
+            checked: false
+        },
+        {
+            key: 9,
+            name: "Avocados",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 10,
+            name: "Bananas",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 1,
+            name: "Broccoli",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 2,
+            name: "Beets",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 11,
+            name: "Bell Peppers",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 12,
+            name: "Blackberries",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 13,
+            name: "Strawberries",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 14,
+            name: "Raspberries",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 15,
+            name: "Blueberries",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 16,
+            name: "Brussel Sprouts",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 17,
+            name: "Cabbage",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 18,
+            name: "Cantaloupe",
+            value: 10,
+            checked: false
+        },
+        {
+            key: 19,
+            name: "Carrots",
+            value: 28,
+            checked: false
+        },
+        {
+            key: 20,
+            name: "Cauliflower",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 21,
+            name: "Celery",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 22,
+            name: "Cherries",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 23,
+            name: "Oranges",
+            value: 21,
+            checked: false
+        },
+        {
+            key: 24,
+            name: "Grapefruit",
+            value: 21,
+            checked: false
+        },
+        {
+            key: 25,
+            name: "Collard Greens",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 26,
+            name: "Corn",
+            value: 2,
+            checked: false
+        },
+
+        {
+            key: 27,
+            name: "Cucumbers",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 28,
+            name: "Eggplant",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 29,
+            name: "Grapes",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 30,
+            name: "Green Beans",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 31,
+            name: "Leafy Herbs",
+            value: 10,
+            checked: false
+        },
+        {
+            key: 32,
+            name: "Woody Herbs",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 33,
+            name: "Kale",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 34,
+            name: "Kiwi",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 35,
+            name: "Leeks",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 36,
+            name: "Lemons",
+            value: 21,
+            checked: false
+        },
+        {
+            key: 37,
+            name: "Lettuces",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 38,
+            name: "Limes",
+            value: 28,
+            checked: false
+        },
+        {
+            key: 39,
+            name: "Mangos",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 40,
+            name: "Mushrooms",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 41,
+            name: "Okra",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 42,
+            name: "Onions",
+            value: 60,
+            checked: false
+        },
+        {
+            key: 43,
+            name: "Papayas",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 44,
+            name: "Peaches",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 45,
+            name: "Plums",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 46,
+            name: "Pears",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 47,
+            name: "Pineapples",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 48,
+            name: "Pomegranates",
+            value: 30,
+            checked: false
+        },
+        {
+            key: 49,
+            name: "Potatoes",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 50,
+            name: "Radishes",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 51,
+            name: "Scallions",
+            value: 10,
+            checked: false
+        },
+        {
+            key: 52,
+            name: "Summer Squash",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 53,
+            name: "Swish Chard",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 54,
+            name: "Tomatoes",
+            value: 4,
+            checked: false
+        },
+        {
+            key: 55,
+            name: "Watermelon",
+            value: 14,
+            checked: false
+        }
+
+    ],
 
 
-]
+    //////////////////////////////////////////////////////////////////
+    ////////// Start Dairy////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
 
-/* <br />
-            <br />
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Veggies</th>
-                        <th>Fruits</th>
-                        <th>Meats</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Broccoli"
-                                    value={10}
-                                    onChange={CheckboxList}
-                                /> Broccoli<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Avocado"
-                                    value={10}
-                                    onChange={CheckboxList}
-                                /> Avocado<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Lettuce"
-                                    value={10}
-                                /> Lettuce<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Asparagus"
-                                    value={10}
-                                /> Asparagus<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Onion"
-                                    value={10}
-                                /> Onion<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Potato"
-                                    value={10}
-                                /> Potato<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Bell Pepper"
-                                    value={10}
-                                /> Bell Pepper<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Beet"
-                                    value={10}
-                                /> Beet<br />
-                            </label>
+    dairy: [
 
-                        </td>
+        {
+            key: 100,
+            name: "Butter",
+            value: 60,
+            checked: false
+        },
+        {
+            key: 101,
+            name: "Hard Cheese",
+            value: 21,
+            checked: false
+        },
+        {
+            key: 102,
+            name: "Soft Cheese",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 103,
+            name: "Eggs in Shell",
+            value: 28,
+            checked: false
+        },
+        {
+            key: 109,
+            name: "Raw Yolks & Whites",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 104,
+            name: "Coffee Cream",
+            value: 10,
+            checked: false
+        },
+        {
+            key: 105,
+            name: "Heavy Cream",
+            value: 10,
+            checked: false
+        },
+        {
+            key: 106,
+            name: "Milk",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 107,
+            name: "Sour Cream",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 108,
+            name: "Yogurt",
+            value: 10,
+            checked: false
+        }
+    ],
+////////////////////////////////////////////////////////////////////////////
+///////////////////////// Meats ////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
-                        <td>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Apple"
-                                    value={10}
-                                /> Apple<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Orange"
-                                    value={10}
-                                /> Orange<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Peach"
-                                    value={10}
-                                /> Peach<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Watermelon"
-                                    value={10}
-                                /> Watermelon<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Pineapple"
-                                    value={10}
-                                /> Pineapple<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Cantaloupe"
-                                    value={10}
-                                /> Cantaloupe<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Pear"
-                                    value={10}
-                                /> Pear<br />
-                            </label>
+    meats: [
 
-                        </td>
+        {
+            key: 201,
+            name: "Bacon",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 202,
+            name: "Chicken",
+            value: 2,
+            checked: false
+        },
 
-                        <td>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Raw Beef"
-                                    value={10}
-                                /> Raw Beef<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Raw Lamb"
-                                    value={10}
-                                /> Raw Lamb<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Raw Pork"
-                                    value={10}
-                                /> Raw Pork<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Raw Poultry"
-                                    value={10}
-                                /> Raw Poultry<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Bacon"
-                                    value={10}
-                                /> Bacon<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Sausage"
-                                    value={10}
-                                /> Sausage<br />
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="Hot Dog"
-                                    value={10}
-                                /> Hot Dog<br />
-                            </label>
-                        </td>
-                    </tr>
-                </tbody>
+        {
+            key: 203,
+            name: "Deli Meat",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 204,
+            name: "Hot Dog *Opened*",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 205,
+            name: "Hot Dog *Unopened*",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 206,
+            name: "Luncheon Meat *Opened*",
+            value: 4,
+            checked: false
+        },
+        {
+            key: 207,
+            name: "Luncheon Meat *Unopened",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 208,
+            name: "Steaks",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 209,
+            name: "Chops",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 210,
+            name: "Roasts",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 211,
+            name: "Turkey",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 212,
+            name: "Hamburger Meat",
+            value: 2,
+            checked: false
+        },
+        {
+            key: 213,
+            name: "Corned Beef *packaged*",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 214,
+            name: "Raw Sausage",
+            value: 2,
+            checked: false
+        },
+        {
+            key: 215,
+            name: "Hard Sausage *e.g. Pepperoni, Jerky Sticks*",
+            value: 21,
+            checked: false
+        },
+    ]
+}
 
-            </table> */
-
-    
 export default checkboxes

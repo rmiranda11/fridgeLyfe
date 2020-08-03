@@ -7,7 +7,7 @@ import moment from 'moment';
 
 function FinalCountdown(props) {
 
-    const [days, setDays] = useState(undefined)
+    const [days, setDays] = useState(0)
     const [hours, setHours] = useState(undefined)
     const [minutes, setMinutes] = useState(undefined)
     const [seconds, setSeconds] = useState(undefined)
@@ -17,15 +17,15 @@ function FinalCountdown(props) {
     useEffect(() => {
         setInterval(() => {
             const { timeTillDate, timeFormat } = props
-            // console.log(timeTillDate)
+
             const then = moment(timeTillDate, timeFormat).clone()
-            // console.log(then)
+
             const now = moment().clone()
-            // console.log(now)
+
             const countdown = moment(then - now)
-            // console.log(countdown)
-            const days = countdown.format('D');
-            const hours = countdown.format('kk');
+
+            const days = countdown.format('D')
+            const hours = countdown.format('kk')
             // const minutes = countdown.format('mm');
             // const seconds = countdown.format('ss');
             setDays(days)
@@ -35,33 +35,35 @@ function FinalCountdown(props) {
         }, 1000)
     }, [])
 
+            const BLOCK = {diplay: 'block'}
+            const NONE= {diplay: 'none'}
+            const RED = {color:"red"}
+            const ORANGE = {color:"orange"}
+            const GREEN = {color:"green"}
+
+
     return (
         <div>
-            <div className="countdown-wrapper">
+            <div className="countdown-wrapper"
+                  style={days < 3 ? RED : days < 6 ? ORANGE : GREEN}
+>
                 {days && (
-                    <div className="countdown-item">
-                        {days + " "}
-                <span>{days  > 1 ? " days" : " day"  }</span>
+                    <div 
+                    className="countdown-item"
+                    style={days < 3 ? RED : days < 6 ? ORANGE : GREEN}
+                    >
+                        {days === 0 || days < 0 ? "Expired": days} 
+                        
+                            {/* <span>{}</span> */}
                     </div>
                 )}
-                {/* {hours && (
-                    <div className="countdown-item">
+                {hours && (
+                    <div className="countdown-item-hour"
+                    >
                         {hours}
-                        <span>{hours > 1 ? "hours" : "hour"}</span>
-                    </div>
-                )} */}
-                {/* {minutes && (
-                    <div className="countdown-item">
-                        {minutes}
-                        <span>minutes</span>
+                        <span>{days && hours > 1 ? " hours" : days && hours === 0 ? "Expired" : " hour"}</span>
                     </div>
                 )}
-                {seconds && (
-                    <div className="countdown-item">
-                        {seconds}
-                        <span>seconds</span>
-                    </div>
-                )} */}
             </div>
         </div>
     )

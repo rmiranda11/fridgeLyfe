@@ -42,8 +42,8 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  line-height: 30px;
-  margin: 20px 30px;
+  line-height: 10px;
+  margin: 10px 30px;
   padding-top: 10px;
   position: relative;
   width: 20px;
@@ -62,9 +62,29 @@ h1 {
 
  /* ------------------- Home Page ----------------------------- */
 
- .check-boxes{
-  margin:.5rem;
-  padding:.1rem;
+ .check-boxes label{
+  /* margin:.5rem;
+  padding:.1rem; */
+  display:table-cell;
+  /* float: none; */
+  width: 25%;
+ }
+
+ /* .two label{width:50%} */
+/* style only the second, the fourth, the sixth... */
+.checkboxForm label:nth-child(2n+2){
+    float:none;clear:both; /* clear the float, so the nexone will start in a new line */
+    color:red; /* just to see the last one */
+}
+ 
+ .checkboxForm{
+  float: left;
+  width: 25%;
+ }
+
+ .countdown-wrapper{
+   margin:0 6rem; 
+   width:10rem
  }
 
  .foodInputBox, .timeInputBox{
@@ -72,3 +92,27 @@ h1 {
    margin:2rem;
  }
 
+ .foodList{
+   display:flex;
+   justify-content: center;
+  width:90%;
+ }
+
+ /* .foodItemForm{
+  display:flex;
+  justify-content: center;
+ } */
+
+ .foodItemBtn{
+  display:flex;
+  justify-content: center;
+ }
+
+ .checkboxForm{
+   display:flex;
+   justify-content: center;
+ }
+
+ .tbody{
+   margin:0rem 3rem;
+ }

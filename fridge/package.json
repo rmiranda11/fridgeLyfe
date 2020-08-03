@@ -6,6 +6,7 @@
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
     "firebase": "^7.15.4",
+    "lodash": "^4.17.19",
     "moment": "^2.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
