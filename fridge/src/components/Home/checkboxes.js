@@ -1,321 +1,329 @@
 
 const checkboxes = {
 
-    fruits :[
+    fruits: [
         {
             key: 6,
-            name: "Apples",
+            name: " Apples",
             value: 28,
             checked: false
         },
         {
-            key: 7,
-            name: "Artichoke",
-            value: 7,
-            checked: false
-        },
-        {
-            key: 8,
-            name: "Asparagus",
-            value: 4,
-            checked: false
-        },
-        {
-            key: 9,
-            name: "Avocados",
-            value: 5,
-            checked: false
-        },
-        {
             key: 10,
-            name: "Bananas",
+            name: " Bananas",
             value: 7,
             checked: false
         },
-        {
-            key: 1,
-            name: "Broccoli",
-            value: 5,
-            checked: false
-        },
-        {
-            key: 2,
-            name: "Beets",
-            value: 14,
-            checked: false
-        },
-        {
-            key: 11,
-            name: "Bell Peppers",
-            value: 14,
-            checked: false
-        },
+
         {
             key: 12,
-            name: "Blackberries",
-            value: 3,
-            checked: false
-        },
-        {
-            key: 13,
-            name: "Strawberries",
-            value: 3,
-            checked: false
-        },
-        {
-            key: 14,
-            name: "Raspberries",
+            name: " Blackberries",
             value: 3,
             checked: false
         },
         {
             key: 15,
-            name: "Blueberries",
+            name: " Blueberries",
             value: 14,
-            checked: false
-        },
-        {
-            key: 16,
-            name: "Brussel Sprouts",
-            value: 5,
-            checked: false
-        },
-        {
-            key: 17,
-            name: "Cabbage",
-            value: 7,
             checked: false
         },
         {
             key: 18,
-            name: "Cantaloupe",
+            name: " Cantaloupe",
             value: 10,
             checked: false
         },
         {
-            key: 19,
-            name: "Carrots",
-            value: 28,
-            checked: false
-        },
-        {
-            key: 20,
-            name: "Cauliflower",
+            key: 22,
+            name: " Cherries",
             value: 7,
             checked: false
         },
         {
-            key: 21,
-            name: "Celery",
-            value: 14,
+            key: 24,
+            name: " Grapefruit",
+            value: 21,
             checked: false
         },
         {
-            key: 22,
-            name: "Cherries",
+            key: 29,
+            name: " Grapes",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 39,
+            name: " Mangos",
             value: 7,
             checked: false
         },
         {
             key: 23,
-            name: "Oranges",
+            name: " Oranges",
             value: 21,
             checked: false
         },
         {
-            key: 24,
-            name: "Grapefruit",
-            value: 21,
+            key: 47,
+            name: " Pineapples",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 48,
+            name: " Pomegranates",
+            value: 30,
+            checked: false
+        },
+        {
+            key: 43,
+            name: " Papayas",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 44,
+            name: " Peaches",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 45,
+            name: " Plums",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 46,
+            name: " Pears",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 14,
+            name: " Raspberries",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 13,
+            name: " Strawberries",
+            value: 3,
+            checked: false
+        },
+        {
+            key: 54,
+            name: " Tomatoes",
+            value: 4,
+            checked: false
+        },
+        {
+            key: 55,
+            name: " Watermelon",
+            value: 14,
+            checked: false
+        }
+
+    ],
+///////////////////////////////////////////////////////////////////////////
+//////////////////////////////////------- VEGGIES -----////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+    veggies: [
+
+        {
+            key: 7,
+            name: " Artichoke",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 8,
+            name: " Asparagus",
+            value: 4,
+            checked: false
+        },
+        {
+            key: 9,
+            name: " Avocados",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 1,
+            name: " Broccoli",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 2,
+            name: " Beets",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 11,
+            name: " Bell Peppers",
+            value: 14,
+            checked: false
+        },
+        {
+            key: 16,
+            name: " Brussel Sprouts",
+            value: 5,
+            checked: false
+        },
+        {
+            key: 17,
+            name: " Cabbage",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 19,
+            name: " Carrots",
+            value: 28,
+            checked: false
+        },
+        {
+            key: 20,
+            name: " Cauliflower",
+            value: 7,
+            checked: false
+        },
+        {
+            key: 21,
+            name: " Celery",
+            value: 14,
             checked: false
         },
         {
             key: 25,
-            name: "Collard Greens",
+            name: " Collard Greens",
             value: 5,
             checked: false
         },
         {
             key: 26,
-            name: "Corn",
+            name: " Corn",
             value: 2,
             checked: false
         },
 
         {
             key: 27,
-            name: "Cucumbers",
+            name: " Cucumbers",
             value: 7,
             checked: false
         },
         {
             key: 28,
-            name: "Eggplant",
-            value: 7,
-            checked: false
-        },
-        {
-            key: 29,
-            name: "Grapes",
+            name: " Eggplant",
             value: 7,
             checked: false
         },
         {
             key: 30,
-            name: "Green Beans",
+            name: " Green Beans",
             value: 5,
             checked: false
         },
         {
             key: 31,
-            name: "Leafy Herbs",
+            name: " Leafy Herbs",
             value: 10,
             checked: false
         },
         {
             key: 32,
-            name: "Woody Herbs",
+            name: " Woody Herbs",
             value: 14,
             checked: false
         },
         {
             key: 33,
-            name: "Kale",
+            name: " Kale",
             value: 7,
             checked: false
         },
         {
             key: 34,
-            name: "Kiwi",
+            name: " Kiwi",
             value: 7,
             checked: false
         },
         {
             key: 35,
-            name: "Leeks",
+            name: " Leeks",
             value: 14,
             checked: false
         },
         {
             key: 36,
-            name: "Lemons",
+            name: " Lemons",
             value: 21,
             checked: false
         },
         {
             key: 37,
-            name: "Lettuces",
+            name: " Lettuces",
             value: 7,
             checked: false
         },
         {
             key: 38,
-            name: "Limes",
+            name: " Limes",
             value: 28,
             checked: false
         },
         {
-            key: 39,
-            name: "Mangos",
-            value: 7,
-            checked: false
-        },
-        {
             key: 40,
-            name: "Mushrooms",
+            name: " Mushrooms",
             value: 7,
             checked: false
         },
         {
             key: 41,
-            name: "Okra",
+            name: " Okra",
             value: 3,
             checked: false
         },
         {
             key: 42,
-            name: "Onions",
+            name: " Onions",
             value: 60,
             checked: false
         },
         {
-            key: 43,
-            name: "Papayas",
-            value: 3,
-            checked: false
-        },
-        {
-            key: 44,
-            name: "Peaches",
-            value: 5,
-            checked: false
-        },
-        {
-            key: 45,
-            name: "Plums",
-            value: 5,
-            checked: false
-        },
-        {
-            key: 46,
-            name: "Pears",
-            value: 7,
-            checked: false
-        },
-        {
-            key: 47,
-            name: "Pineapples",
-            value: 5,
-            checked: false
-        },
-        {
-            key: 48,
-            name: "Pomegranates",
-            value: 30,
-            checked: false
-        },
-        {
             key: 49,
-            name: "Potatoes",
+            name: " Potatoes",
             value: 14,
             checked: false
         },
         {
             key: 50,
-            name: "Radishes",
+            name: " Radishes",
             value: 14,
             checked: false
         },
         {
             key: 51,
-            name: "Scallions",
+            name: " Scallions",
             value: 10,
             checked: false
         },
         {
             key: 52,
-            name: "Summer Squash",
+            name: " Summer Squash",
             value: 5,
             checked: false
         },
         {
             key: 53,
-            name: "Swish Chard",
+            name: " Swish Chard",
             value: 3,
             checked: false
         },
-        {
-            key: 54,
-            name: "Tomatoes",
-            value: 4,
-            checked: false
-        },
-        {
-            key: 55,
-            name: "Watermelon",
-            value: 14,
-            checked: false
-        }
-
     ],
 
 
@@ -327,159 +335,158 @@ const checkboxes = {
 
         {
             key: 100,
-            name: "Butter",
+            name: " Butter",
             value: 60,
             checked: false
         },
         {
             key: 101,
-            name: "Hard Cheese",
+            name: " Hard Cheese",
             value: 21,
             checked: false
         },
         {
             key: 102,
-            name: "Soft Cheese",
+            name: " Soft Cheese",
             value: 7,
             checked: false
         },
         {
             key: 103,
-            name: "Eggs in Shell",
+            name: " Eggs in Shell",
             value: 28,
             checked: false
         },
-        {
-            key: 109,
-            name: "Raw Yolks & Whites",
-            value: 3,
-            checked: false
-        },
+        // {
+        //     key: 109,
+        //     name: "Raw Yolks & Whites",
+        //     value: 3,
+        //     checked: false
+        // },
         {
             key: 104,
-            name: "Coffee Cream",
+            name: " Coffee Cream",
             value: 10,
             checked: false
         },
         {
             key: 105,
-            name: "Heavy Cream",
+            name: " Heavy Cream",
             value: 10,
             checked: false
         },
         {
             key: 106,
-            name: "Milk",
+            name: " Milk",
             value: 7,
             checked: false
         },
         {
             key: 107,
-            name: "Sour Cream",
+            name: " Sour Cream",
             value: 14,
             checked: false
         },
         {
             key: 108,
-            name: "Yogurt",
+            name: " Yogurt",
             value: 10,
             checked: false
         }
     ],
-////////////////////////////////////////////////////////////////////////////
-///////////////////////// Meats ////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ///////////////////////// Meats ////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
     meats: [
 
         {
             key: 201,
-            name: "Bacon",
+            name: " Bacon",
             value: 7,
             checked: false
         },
         {
             key: 202,
-            name: "Chicken",
+            name: " Chicken",
             value: 2,
             checked: false
         },
-
         {
             key: 203,
-            name: "Deli Meat",
+            name: " Deli Meat",
             value: 5,
             checked: false
         },
-        {
-            key: 204,
-            name: "Hot Dog *Opened*",
-            value: 7,
-            checked: false
-        },
-        {
-            key: 205,
-            name: "Hot Dog *Unopened*",
-            value: 14,
-            checked: false
-        },
-        {
-            key: 206,
-            name: "Luncheon Meat *Opened*",
-            value: 4,
-            checked: false
-        },
-        {
-            key: 207,
-            name: "Luncheon Meat *Unopened",
-            value: 14,
-            checked: false
-        },
+        // {
+        //     key: 204,
+        //     name: "Hot Dog *Opened*",
+        //     value: 7,
+        //     checked: false
+        // },
+        // {
+        //     key: 205,
+        //     name: "Hot Dog *Unopened*",
+        //     value: 14,
+        //     checked: false
+        // },
+        // {
+        //     key: 206,
+        //     name: "Luncheon Meat *Opened*",
+        //     value: 4,
+        //     checked: false
+        // },
+        // {
+        //     key: 207,
+        //     name: "Luncheon Meat *Unopened",
+        //     value: 14,
+        //     checked: false
+        // },
         {
             key: 208,
-            name: "Steaks",
+            name: " Steaks",
             value: 5,
             checked: false
         },
         {
             key: 209,
-            name: "Chops",
+            name: " Chops",
             value: 5,
             checked: false
         },
         {
             key: 210,
-            name: "Roasts",
+            name: " Roasts",
             value: 5,
             checked: false
         },
         {
             key: 211,
-            name: "Turkey",
+            name: " Turkey",
             value: 5,
             checked: false
         },
         {
             key: 212,
-            name: "Hamburger Meat",
+            name: " Hamburger Meat",
             value: 2,
             checked: false
         },
-        {
-            key: 213,
-            name: "Corned Beef *packaged*",
-            value: 7,
-            checked: false
-        },
+        // {
+        //     key: 213,
+        //     name: "Corned Beef *packaged*",
+        //     value: 7,
+        //     checked: false
+        // },
         {
             key: 214,
-            name: "Raw Sausage",
+            name: " Raw Sausage",
             value: 2,
             checked: false
         },
         {
             key: 215,
-            name: "Hard Sausage *e.g. Pepperoni, Jerky Sticks*",
+            name: " Hard Sausage",
             value: 21,
             checked: false
         },

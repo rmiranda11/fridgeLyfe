@@ -1,12 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
+  width:auto;
   font-family: sans-serif;
   background-color: #f9f7ff;
 }
 
 .navbar{
   background-color: skyblue;
+  /* background-color: #e40475; */
 }
 
 .title{
@@ -19,7 +21,8 @@ body {
 }
 
 body {
-  /* font-family: 'Lato', sans-serif; */
+  background-color: skyblue;
+  
 }
 
 h1 {
@@ -62,24 +65,23 @@ h1 {
 
  /* ------------------- Home Page ----------------------------- */
 
- .check-boxes label{
-  /* margin:.5rem;
-  padding:.1rem; */
-  display:table-cell;
-  /* float: none; */
-  width: 25%;
+ .check-boxes{
+  margin:auto;
+  padding:.4rem;
  }
 
- /* .two label{width:50%} */
-/* style only the second, the fourth, the sixth... */
-.checkboxForm label:nth-child(2n+2){
-    float:none;clear:both; /* clear the float, so the nexone will start in a new line */
-    color:red; /* just to see the last one */
+ .checks {
+  columns: 4 8em;
+  vertical-align: middle;
+  word-wrap: break-word;
+  width:10rem;
+  margin:auto;
+  padding:.5rem;
 }
  
  .checkboxForm{
-  float: left;
-  width: 25%;
+  margin: 3rem;
+  padding:2rem;
  }
 
  .countdown-wrapper{
@@ -93,9 +95,16 @@ h1 {
  }
 
  .foodList{
-   display:flex;
-   justify-content: center;
+  display:flex;
+  justify-content: center;
   width:90%;
+  margin:1.5rem;
+  font-size:16px;
+ }
+
+ .fruits{
+   width:auto;
+   /* background-color: red; */
  }
 
  /* .foodItemForm{
@@ -103,16 +112,230 @@ h1 {
   justify-content: center;
  } */
 
+
+ /* ------------------------------- Buttons --------------------------------- */
  .foodItemBtn{
   display:flex;
   justify-content: center;
+  margin:auto;
  }
 
- .checkboxForm{
+ .login-btn{
+   /* color:black; */
+   font-weight: bold;
+   position: absolute;
+   display:flex;
+   /* align-items: center; */
+   justify-content: center;
+   top:7rem;
+   width:6rem;
+   font-family: 'Quicksand', sans-serif;
+
+ }
+
+ .login-btn-2{
+  font-weight: bold;
+  position: absolute;
+  display:flex;
+  /* align-items: center; */
+  justify-content: center;
+  top:10rem;
+  width:6rem;
+  font-family: 'Quicksand', sans-serif;
+
+ }
+
+ .signup-btn{
+  display:flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin-left:4.5rem;
+}
+
+.signup-btn-2{
+  color:#e40475;
+  margin-left:4.5rem;
+  text-shadow:white .08rem .09rem .09rem
+}
+
+.pw-forget-btn{
+  margin-left:2rem;
+}
+
+ /* -------------------------------- Tabs ----------------------------------- */
+
+ .tab{
+  /* background-color: #302387 !important; */
+
+ }
+ .tabs{
+   display:flex;
+   justify-content: center;
+   margin:auto;
+
+   /* padding:1rem; */
+ }  
+
+ .tab-list{
+  display:flex;
+  justify-content: center;
+  /* background-color: hsl(58, 16%, 40%); */
+ }
+
+ .t-fridge{
+   /* background-color:; */
+ }
+
+ .food-list{
+   background-color: #f8c43a;
+   color:black;
+   font-weight: bold;
+ }
+
+ /* -----------Landing Page----------  */
+ .center{
    display:flex;
    justify-content: center;
  }
 
- .tbody{
-   margin:0rem 3rem;
+ .invisible{
+    /* background:none; */
+    /* border:none; */
  }
+
+.title{
+  /* font-family: 'Mansalva', cursive; */
+  font-family: 'Lakki Reddy', cursive;
+
+  display:flex;
+  align-content: center;
+  color:#f9f8eb;
+  color:#e40475;
+  text-shadow: white .4rem .4rem .5rem;
+  font-size:4.5rem;
+  margin-bottom: -.5rem;
+}
+
+.sub-title{
+  font-family: 'Play', sans-serif;
+  display:flex;
+  justify-content: left;
+}
+
+.intro{
+  margin-top:1.5rem;
+}
+
+.intro-text{
+  font-family: 'Quicksand', sans-serif;
+  display:flex;
+  justify-content: left;
+  color:#f8c43a;
+  padding:.5rem;
+  margin-right:5rem;
+  font-size:1.8rem;
+}
+
+.landing-page{
+  background-color: teal;
+  padding:2rem 0;
+}
+
+.fridge{
+  display:flex;
+  align-content: center;
+}
+
+/* .sign-in{
+  position: absolute;
+  display:flex;
+  justify-content: center;
+
+} */
+
+.login{
+  position: absolute;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:5rem;
+}
+
+.sign-in-div{
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  margin-top:1.9rem;
+}
+
+.sign-up-div{
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  margin-top:3.3rem;
+}
+
+.pw-forget-div{
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  margin-top:2rem;
+}
+
+
+
+.signin-text{
+
+}
+.error{
+  width:15rem;
+  font-size:12px;
+  color:red;
+  margin-top:3rem;
+  margin-bottom:-1rem;
+  background-color: white;
+}
+.error-password{
+  width:15rem;
+  font-size:14px;
+  color:red;
+  margin-top:1rem;
+  margin-bottom:-1rem;
+}
+
+
+
+/* ----------- Door Open Animation ---------------- */
+
+.backDoor
+{
+  background-color: white;
+  width:10rem;
+  /* position:relative; */
+  /* width:200px;
+  height:300px; */
+  
+  margin: 0 auto;
+  margin-top:50px;
+}
+
+.door
+{
+  /* background-color: brown; */
+  /* position:absolute; */
+  /* top:0px;
+  left:0px; */
+  /* width:200px;
+  height:300px; */
+  /* -webkit-transform-origin: right; */
+  
+  transform-origin: right; 
+  /*Speed of the Door animation*/
+  transition: all 3.5s ease-in-out;
+}
+
+.doorOpen
+{
+  /* prespectiv creates the door open effect*/ 
+  /* transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-120deg); */
+}

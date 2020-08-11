@@ -1,12 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
+// import FormGroup from '@material-ui/core/FormGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+// import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+// import CheckBoxIcon from '@material-ui/icons/CheckBox';
+// import Favorite from '@material-ui/icons/Favorite';
+// import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
-function Checkbox (props){
+function Checkboxes (props){
 
     return(
-        <input 
+        <input
             type="checkbox" 
-            // className={props.className} 
+            className={"check-boxes"} 
             // name={props.name} 
             // value={props.value} 
             checked={props.item.checked} 
@@ -17,7 +24,7 @@ function Checkbox (props){
 
     }
 
-Checkbox.propTypes = {
+Checkboxes.propTypes = {
     // type: PropTypes.string,
     // name: PropTypes.string.isRequired,
     // value:PropTypes.number.isRequired,
@@ -25,4 +32,4 @@ Checkbox.propTypes = {
   }
 
 
-export default Checkbox
+export default Checkboxes

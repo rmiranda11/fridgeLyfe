@@ -7,17 +7,14 @@ import { PasswordForgetLink } from "../PasswordForget"
 import { withFirebase } from "../Firebase"
 import * as ROUTES from "../../constants/routes"
 
-import TextField from '@material-ui/core/TextField';
-import Alert from 'react-bootstrap/Alert'
-import Button from "react-bootstrap/Button"
-
+import TextField from "./@material-ui/core/Checkbox"
 
 const SignInPage = () => (
-    <div className={"intro"}>
-        <h3 className="sub-title">Sign In</h3>
-        <SignInForm /><br/>
-        {/* <PasswordForgetLink/> */}
-        {/* <SignUpLink /> */}
+    <div>
+        <h1>Sign In</h1>
+        <SignInForm />
+        <PasswordForgetLink />
+        <SignUpLink />
     </div>
 )
 
@@ -59,33 +56,29 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === ''
 
         return (
-            <form className="sign-in" onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit}>
 
                 <TextField
                     name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"
-                    label="Email Address"
+                    placeholder="Email Address"
+                    label="Outlined"
                     variant="outlined"
-                /><br /><br />
-                <TextField
+                />
+                <input
                     name="password"
                     value={password}
                     onChange={this.onChange}
                     type="password"
-                    label="Password"
-                    variant="outlined"
-                /><br />            {error && <p className="error">{error.message}</p>}
-                <br /><br />
-                
-                <Button 
-                className={"signup-btn"}
-                disabled={isInvalid} 
-                variant="light"
-                type="submit">
+                    placeholder="Password"
+                />
+                <button disabled={isInvalid} type="submit">
                     Sign In
-            </Button>
+            </button>
+
+                {error && <p>{error.message}</p>}
             </form>
         )
     }

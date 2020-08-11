@@ -5,9 +5,13 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
+import TextField from '@material-ui/core/TextField';
+import Button from "react-bootstrap/Button"
+
+
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
+    <h4 className="sub-title">SignUp</h4><br/>
     <SignUpForm />
   </div>
 );
@@ -87,62 +91,67 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <form className="signup" onSubmit={this.onSubmit}>
+        <TextField
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
-        />
-        <input
+          label="Full Name"
+          variant="outlined"
+        /><br /><br />
+        <TextField
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
-        />
-        <input
+          label="Email Address"
+          variant="outlined"
+        /><br /><br />
+        <TextField
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
-        />
-        <input
+          label="Password"
+          variant="outlined"
+        /><br /><br />
+        <TextField
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
-        />
-        <label>
+          label="Confirm Password"
+          variant="outlined"
+        /><br /><br />
+        {/* <label>
           Admin:
-          <input
+          <TextField
             name="isAdmin"
             type="checkbox"
             checked={isAdmin}
             onChange={this.onChangeCheckbox}
           />
-        </label>
-        <button disabled={isInvalid} type="submit">
+        </label> */}
+        <Button className="signup-btn" disabled={isInvalid} variant="light"
+          type="submit">
           Sign Up
-        </button>
+        </Button>
 
-        {error && <p>{error.message}</p>}
+        {error && <p class="error">{error.message}</p>}
       </form>
     );
   }
 }
 
-const SignUpLink = () => (
-  <p>
-    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-  </p>
-);
+
 
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 export default SignUpPage;
 
-export { SignUpForm, SignUpLink };
+export { SignUpForm };
