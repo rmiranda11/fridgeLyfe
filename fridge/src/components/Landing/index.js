@@ -42,7 +42,7 @@ function toggleDoor() {
 const LandingAuth = ({ authUser }) => (
     <div className="landing-page row">
 
-        <div className="fridge d-flex justify-content-center col-sm-6 backDoor">
+        <div className="fridge d-flex justify-content-center col-sm-6">
             <img className={door ? "doorOpen" : 'door'} onClick={toggleDoor} src="https://i.ibb.co/41LT43w/fridge.png" alt="fridge" border="0" />
         </div>
     </div>

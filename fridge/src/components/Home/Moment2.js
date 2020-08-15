@@ -14,7 +14,7 @@ function FinalCountdown(props) {
 
 
     useEffect(() => {
-        setInterval(() => {
+        const Timer = setInterval(() => {
             const { timeTillDate, timeFormat } = props
 
             const then = moment(timeTillDate, timeFormat).clone()
@@ -37,7 +37,7 @@ function FinalCountdown(props) {
             // setSeconds(seconds)
 
             if(days && hours === 0){
-                clearInterval()
+                clearInterval(Timer)
             }
         }, 1000)
     }, [])

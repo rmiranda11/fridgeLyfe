@@ -11,9 +11,9 @@ body {
   /* background-color: #e40475; */
 }
 
-.title{
-  color:white
-}
+/* tr:nth-child(odd) {
+  background-color: black;
+} */
 
 /* --------- Time Component ----------- */
 * {
@@ -21,7 +21,17 @@ body {
 }
 
 body {
-  background-color: skyblue;
+  background-color: teal;
+  /* background-image: url("https://files.123freevectors.com/wp-content/original/169733-shiny-abstract-pink-and-blue-background-vector-image.jpg");
+  background-image: url("https://www.freepik.com/premium-vector/red-grunge-vintage-background_5552353.htm#page=1&query=vintage%20background&position=20");
+  background-image: url("https://img.freepik.com/free-vector/vintage-ray-retro-sunburst-background_92086-49.jpg?size=626&ext=jpg");
+  background-image: url(../public/pics/bg2.jpg); */
+  /* background-image: url("https://www.ubackground.com/_ph/3/909942444.jpg"); */
+  background: url("https://i.imgur.com/WOZhmmt.png") ;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-size: 2000px 2000px; */
+
   
 }
 
@@ -38,26 +48,17 @@ h1 {
   flex-wrap: wrap;
 }
 
-.countdown-item {
-  color: #111;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
+.expired{
+  color:black;
+  font-weight: bold;
+  display:flex;
   justify-content: center;
-  flex-direction: row;
-  line-height: 10px;
-  margin: 10px 30px;
-  padding-top: 10px;
-  position: relative;
-  width: 20px;
-  height: 20px;
+  align-items: center;
+
 }
 
-.countdown-item span {
-  color: #333;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
+.margin{
+  margin:1rem;
 }
 
  /* ------------------ End Time Component ------------------ */
@@ -100,6 +101,7 @@ h1 {
   width:90%;
   margin:1.5rem;
   font-size:16px;
+  border-radius: 80%;
  }
 
  .fruits{
@@ -163,44 +165,43 @@ h1 {
 }
 
  /* -------------------------------- Tabs ----------------------------------- */
+  .tab{
+    /* color:red; */
+  }
 
- .tab{
-  /* background-color: #302387 !important; */
-
- }
  .tabs{
    display:flex;
    justify-content: center;
    margin:auto;
+   /* background-color: peru; */
+   /* border:inset 2px rgb(211, 62, 62); */
 
-   /* padding:1rem; */
  }  
 
  .tab-list{
   display:flex;
   justify-content: center;
-  /* background-color: hsl(58, 16%, 40%); */
- }
-
- .t-fridge{
-   /* background-color:; */
+  margin:1rem auto 0;  
+  font-size:25px;
+  /* border:solid 2px black; */
  }
 
  .food-list{
-   background-color: #f8c43a;
+   background-color: whitesmoke;
+   opacity:77%;
    color:black;
    font-weight: bold;
+   /* border-radius: 20; */
+
  }
 
+
+
+ 
  /* -----------Landing Page----------  */
  .center{
    display:flex;
    justify-content: center;
- }
-
- .invisible{
-    /* background:none; */
-    /* border:none; */
  }
 
 .title{
@@ -246,13 +247,6 @@ h1 {
   align-content: center;
 }
 
-/* .sign-in{
-  position: absolute;
-  display:flex;
-  justify-content: center;
-
-} */
-
 .login{
   position: absolute;
   display:flex;
@@ -282,11 +276,6 @@ h1 {
   margin-top:2rem;
 }
 
-
-
-.signin-text{
-
-}
 .error{
   width:15rem;
   font-size:12px;
