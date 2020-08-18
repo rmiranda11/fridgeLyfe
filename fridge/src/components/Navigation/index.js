@@ -28,7 +28,7 @@ const Navigation = () => (
 
 
 const NavigationAuth = ({authUser}) => (
-<Navbar className="navbar" bg="light" expand="lg">
+<Navbar className="navbar" expand="lg">
   <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">

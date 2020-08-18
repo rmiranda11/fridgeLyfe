@@ -9,6 +9,8 @@ import { withAuthorization, AuthUserContext } from "../Session"
 
 import Button from "react-bootstrap/button"
 import Form from "react-bootstrap/form"
+import Table from "react-bootstrap/table"
+import Modal from "react-bootstrap/Modal"
 
 import checkboxes from "./checkboxes"
 
@@ -16,12 +18,12 @@ import _ from 'lodash';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import Collapsible from 'react-collapsible';
 
-// import FormGroup from '@material-ui/core/FormGroup';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
-import FinalCountdown from "./Moment2"
 import Countdown from "react-countdown";
 import { withTheme } from "@material-ui/core";
 
@@ -60,15 +62,22 @@ class FoodBase extends Component {
             checkboxDataDairy: checkboxes.dairy,
             checkboxDataMeats: checkboxes.meats,
             timeLeft: '',
+            toggle:false,
         }
 
         this.handleChange = this.handleChange.bind(this)
         this.onChangeTime = this.onChangeTime.bind(this)
+        this.handleClick = this.handleClick.bind(this)
 
+    }
+
+    handleClick(){
+        // this.setState({toggle : !toggle})
     }
 
 
     handleChange(id) {
+
         this.setState(prevState => {
             const updatedData = prevState.checkboxDataFruit.map(item => {
                 if (item.key === id) {
@@ -175,6 +184,7 @@ class FoodBase extends Component {
                 null
         )
 
+
         event.preventDefault()
     }
 
@@ -191,12 +201,12 @@ class FoodBase extends Component {
             } else {
               // Render a countdown
               return (
-                <span 
+                <p 
                 className="countdown-wrapper"
                 style={days < 3 ? RED : days < 6 ? ORANGE : GREEN}
                 >
-                  {days}:{hours}:{minutes}:{seconds}
-                </span>
+                  {days === 0 ? "" : days}{days > 1 ? " days" : days === 0 ? "" : " day"} {hours === 0 ? "< 1": hours}{hours > 1 ? " hours" : " hour"}
+                </p>
               );
             }
           };
@@ -226,7 +236,7 @@ class FoodBase extends Component {
 
     // Pushes a new food item to db using state
     onCreateFoodItem = (event, authUser) => {
-
+        
         this.props.firebase.food().push({
             text: this.state.text,
             userId: authUser.uid,
@@ -242,6 +252,8 @@ class FoodBase extends Component {
             moment: '',
             timeLeft: ''
         })
+
+
 
         event.preventDefault();
     }
@@ -337,14 +349,27 @@ class FoodBase extends Component {
         }
 
 
+        function FoodCollapse(foodName,direction){
+            const up = <KeyboardArrowUpIcon className="up-icon"/>
+            const down = <KeyboardArrowDownIcon className="down-icon"/>
+            return(
+
+                <div className="food-title"><h4>{foodName}</h4>{direction === "up" ? up : down}</div>
+            )
+        }
+
+
+
+
+
+
         return (
 
             <AuthUserContext.Consumer>
                 {authUser => (
                     <React.Fragment>
                         
-                        {loading && <div className="title">Loading...</div>}
-                        {
+                        {loading ? <div className="title center">Loading...</div> : 
                                 <Tabs className="col-sm-8">
                                     <TabList className="tab-list">
                                         <Tab style={tabStyle}>My Fridge</Tab>
@@ -357,10 +382,11 @@ class FoodBase extends Component {
                                 {food ? (
 
                                     <div className="foodList tbody col-sm-12">
-                                        <table>
+                                        <Table striped bordered hover size="sm" className="table" responsive="small">
+
                                             <thead>
                                                 <tr>
-                                                    <th>Items</th>
+                                                    <th className="item-text">Items</th>
                                                     <th className={"countdown-wrapper"}>Time Left</th>
                                                 </tr>
                                             </thead>
@@ -373,19 +399,12 @@ class FoodBase extends Component {
                                                     const itemTime = item.time
                                                     const moment = item.moment
                                                     
-                                                    // console.log(foodItem)
-                                                    // console.log(moment / 3600000)
-                                                    // console.log(Date.now())
-                                                    // const D = (Date.now() - moment)
-                                                    // console.log(D)
-                                                    // console.log(Math.round(D / 3600000))
+                                        
 
                                                     
                                                     const MixedComponent = () => (
-                                                        <tr 
-                                                        // value={this.TimeMatch(itemTime, moment)}
-                                                        >
-                                                            <td>
+                                                        <tr>
+                                                            <td className="food-item">
                                                                 {foodItem}
                                                             </td>
                                                             <td>
@@ -404,14 +423,7 @@ class FoodBase extends Component {
                                                         </tr>
                                                     )
                                             
-                                                    const FoodItem = () => (
-                                                        <td
-                                                            className={"tbody"}>
-                                                            {foodItem}
-                                                        </td>
-
-                                                    )
-
+                                
                                                     if (itemID === userID) {
 
                                                         return (
@@ -424,18 +436,20 @@ class FoodBase extends Component {
 
                                             }
 
-                                        </table>
+                                        </Table>
                                     </div>
                                 ) : (
-                                        <div>List is blank</div>
+                                        <h2 className="sub-title">Please add food items</h2>
                                     )}
                             </TabPanel>
                             <TabPanel>
 
 
                                 <div className="food-item-form" id="foodForm">
+                                    <h2 className="sub-title quick-select">Create Your Own</h2>
+                                    <p className="create-text">Create your own item to add to your Fridge. Add any odds and ends or even leftovers. Be sure to follow the USDA on recommended shelf life of both uncooked and cooked food <a href="https://www.fsis.usda.gov/wps/portal/fsis/topics/food-safety-education/get-answers/food-safety-fact-sheets/safe-food-handling/leftovers-and-food-safety/ct_index">HERE</a></p>
                                     <form
-                                        className={"foodItemForm "}
+                                        className={"foodItemForm"}
                                         name="foodForm"
                                         onSubmit={event => this.onCreateFoodItem(event, authUser)}>
 
@@ -446,7 +460,6 @@ class FoodBase extends Component {
                                                 type="text"
                                                 value={text}
                                                 onChange={this.onChangeText}
-                                            // required={true}
                                             />
                                         </Form.Group>
                                         <Form.Group className="timeInputBox">
@@ -465,8 +478,10 @@ class FoodBase extends Component {
 
                                         <Button
                                             className="foodItemBtn"
-                                            variant="outline-primary"
+                                            variant="primary"
                                             type="submit"
+                                            style={{backgroundColor:"teal"}}
+                                            onClick={this.handleClick()}
                                         // disabled={time < 1}
                                         >Add Item</Button><br /><br />
 
@@ -479,11 +494,16 @@ class FoodBase extends Component {
                                             name="checkboxform"
                                             onSubmit={event => this.addToFoodDb(event, authUser)}>
 
-                                            <h2 className="sub-title">Quick Select</h2>
-                                            <h4 className="">Fruit</h4>
+                                            <h2 className="sub-title quick-select center">Quick Select</h2>
+                                            <p className="quick-select-text">Went Grocery Shopping? Add multiple items all at once with the form below. All recommeded expiration times made by your fellow <a href="https://www.fsis.usda.gov/wps/portal/fsis/topics/food-safety-education/get-answers/food-safety-fact-sheets/safe-food-handling">USDA</a></p>
+
+                                            {/* <h4 className="">Fruit</h4> */}
+                                            <Collapsible trigger={FoodCollapse("Fruit","down")} triggerWhenOpen={FoodCollapse("Fruit", "up")}>
+
                                             {this.state.checkboxDataFruit.map(item => (
                                                 <label
-                                                    key={item.key}>
+                                                    key={item.key}>      
+
                                                     <div className={"checks"}>
                                                         <Checkboxes
                                                             key={item.key}
@@ -497,11 +517,15 @@ class FoodBase extends Component {
                                                         </ Checkboxes>
 
                                                         {item.name}
+
                                                     </div>
+
                                                 </label>
                                             ))
                                             }
-                                            <h4>Veggies</h4>
+                                                    </Collapsible>
+
+                                            <Collapsible trigger={FoodCollapse("Veggies","down")} triggerWhenOpen={FoodCollapse("Veggies", "up")}>
                                             {this.state.checkboxDataVeggies.map(item => (
                                                 <label
                                                     key={item.key}>
@@ -522,7 +546,9 @@ class FoodBase extends Component {
                                                 </label>
                                             ))
                                             }
-                                            <h4>Dairy</h4>
+                                            </Collapsible>
+
+                                            <Collapsible trigger={FoodCollapse("Dairy","down")} triggerWhenOpen={FoodCollapse("Dairy", "up")}>
                                             {this.state.checkboxDataDairy.map(item => (
                                                 <label key={item.key}>
                                                     <div className={"checks"}>
@@ -543,7 +569,9 @@ class FoodBase extends Component {
                                                 </label>
                                             ))
                                             }
-                                            <h4>Meats</h4>
+                                              </Collapsible>
+
+                                              <Collapsible trigger={FoodCollapse("Meats","down")} triggerWhenOpen={FoodCollapse("Meats", "up")}>
                                             {this.state.checkboxDataMeats.map(item => (
                                                 <label key={item.key}>
                                                     <div className={"checks"}>
@@ -563,14 +591,17 @@ class FoodBase extends Component {
                                                 </label>
                                             ))
                                             }
+                                          </Collapsible>
+
                                             <br />
                                             <Button
-                                                variant="outline-primary"
+                                                
+                                                variant="primary"
                                                 type="submit"
+                                                style={{backgroundColor:"teal"}}
                                             >Add Items</Button>
                                         </form></TabPanel>
                                         </div>
-
                                 </Tabs>
                         }
 

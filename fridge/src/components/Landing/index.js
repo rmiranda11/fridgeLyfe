@@ -52,14 +52,14 @@ const SignUpLink = () => (
     <p className="center">
       Don't have an account?
     </p> 
-    <Button className={"signup-btn-2"} variant={"secondary"} onClick={handleClick3}>Sign Up</Button>
+    <Button className={"signup-btn-2"} variant={"light"} onClick={handleClick3}>Sign Up</Button>
 </div>
   );
 
   const PasswordForgetLink = () => {
     return(
     <div className="center">
-        <Button variant={"light"} style={{color:"#f8c43a"}} onClick={handleClick4} >Forgot Password?</Button>
+        <Button variant={"light"}  onClick={handleClick4} >Forgot Password?</Button>
     </div>
     )
 }
@@ -80,8 +80,8 @@ const LandingNonAuth = () => (
         </div>
 
         <div className="intro col-sm-6">
-            <h1 className="title">Fridge Lyfe</h1>
-            <h4 className="sub-title"><q>Freshness makes the ❤️ last longer</q></h4>
+            <h1 className="title-landing">Fridge Lyfe</h1>
+            {/* <h4 className="sub-title"><q>Freshness makes the ❤️ last longer</q></h4> */}
             <p className="intro-text">Divert from your old ways! Never throw out spoiled food again with Fridge Lyfe. 
             The newest App that tracks the life of your food from the moment you buy to the last recommended day of use. 
             </p>

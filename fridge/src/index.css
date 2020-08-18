@@ -27,7 +27,7 @@ body {
   background-image: url("https://img.freepik.com/free-vector/vintage-ray-retro-sunburst-background_92086-49.jpg?size=626&ext=jpg");
   background-image: url(../public/pics/bg2.jpg); */
   /* background-image: url("https://www.ubackground.com/_ph/3/909942444.jpg"); */
-  background: url("https://i.imgur.com/WOZhmmt.png") ;
+  background: url("../public/pics/bg4.png") ;
   /* background-repeat: no-repeat; */
   /* background-size: cover; */
   /* background-size: 2000px 2000px; */
@@ -40,13 +40,13 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 }
-
+/* 
 .countdown-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-}
+} */
 
 .expired{
   color:black;
@@ -64,11 +64,14 @@ h1 {
  /* ------------------ End Time Component ------------------ */
 
 
- /* ------------------- Home Page ----------------------------- */
+ /* ------------------- Checkboxes ----------------------------- */
+
 
  .check-boxes{
   margin:auto;
   padding:.4rem;
+  font-family: 'Quicksand', sans-serif;
+  background-color: thistle;
  }
 
  .checks {
@@ -78,18 +81,37 @@ h1 {
   width:10rem;
   margin:auto;
   padding:.5rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  background-color: thistle;
+
 }
  
  .checkboxForm{
-  margin: 3rem;
-  padding:2rem;
+  margin: 1rem 4rem;
+  /* padding:2rem; */
  }
 
- .countdown-wrapper{
-   margin:0 6rem; 
-   width:10rem
+ .countdown-wrapper {
+   margin:0 4rem; 
+   width:14rem;
+   /* display: flex;
+   justify-content: center; */
+   font-family: 'Lakki Reddy', cursive;
+   color:#e40475;
+   font-size:1.3rem;
+  display:flex;
+
  }
 
+ .item-text{
+  font-family: 'Lakki Reddy', cursive;
+  color:#e40475;
+  font-size:1.5rem;
+  margin:2rem;
+  width: 4rem;
+
+ }
  .foodInputBox, .timeInputBox{
    width:15rem;
    margin:2rem;
@@ -99,9 +121,9 @@ h1 {
   display:flex;
   justify-content: center;
   width:90%;
-  margin:1.5rem;
+  margin:0 1.5rem;
   font-size:16px;
-  border-radius: 80%;
+  /* border-radius: 80%; */
  }
 
  .fruits{
@@ -109,17 +131,52 @@ h1 {
    /* background-color: red; */
  }
 
- /* .foodItemForm{
-  display:flex;
-  justify-content: center;
- } */
+ .quick-select{
+   margin:1rem;
+   /* color:white; */
+   color:#e40475;
+ }
 
+ .quick-select{
+   margin:.4rem 8rem;
+ }
 
+ .quick-select-text{
+  font-size:1.5rem;
+  margin:.5rem 10rem .5rem 0;
+  margin-bottom:2.7rem;
+  color:white;
+  font-family: 'Quicksand', sans-serif;
+ }
+
+ .create-text{
+  font-size:1.3rem;
+  margin:1rem 8rem;
+  margin-bottom:2rem;
+  color:white;
+  /* display:flex; */
+  font-family: 'Quicksand', sans-serif;
+
+  /* justify-content: center; */
+ }
+
+ .foodItemForm{
+   margin:1rem 12rem;
+
+ }
+
+ .food-title{
+   margin:.8rem;
+ }
+
+.food-item{
+  margin:10rem;
+}
  /* ------------------------------- Buttons --------------------------------- */
  .foodItemBtn{
   display:flex;
   justify-content: center;
-  margin:auto;
+  margin:0 7rem;
  }
 
  .login-btn{
@@ -155,7 +212,7 @@ h1 {
 }
 
 .signup-btn-2{
-  color:#e40475;
+  color:black;
   margin-left:4.5rem;
   text-shadow:white .08rem .09rem .09rem
 }
@@ -164,57 +221,100 @@ h1 {
   margin-left:2rem;
 }
 
+
+
  /* -------------------------------- Tabs ----------------------------------- */
-  .tab{
-    /* color:red; */
-  }
+ /* ------------------------------------------------------------------- */
+ /* ------------------------------------------------------------------- */
+ /* ------------------------------------------------------------------- */
 
  .tabs{
    display:flex;
    justify-content: center;
    margin:auto;
-   /* background-color: peru; */
-   /* border:inset 2px rgb(211, 62, 62); */
-
- }  
+ }
 
  .tab-list{
   display:flex;
   justify-content: center;
-  margin:1rem auto 0;  
+  margin:3rem auto 0;
+  margin-right:4rem;  
   font-size:25px;
   /* border:solid 2px black; */
  }
 
  .food-list{
    background-color: whitesmoke;
-   opacity:77%;
+   opacity:85%;
    color:black;
    font-weight: bold;
-   /* border-radius: 20; */
-
  }
 
+.table{
+  background-color: white;
+}
 
+.food-title{
+  color:whitesmoke;
+  font-family: 'Lakki Reddy', cursive;
+  display:flex;
+  justify-content: right;
+}
 
+.up-icon .down-icon{
+  display:flex;
+  justify-content: right;
+  margin-left:10rem;
+}
  
+.check-boxes .checks{
+  background-color: whitesmoke;
+  opacity:90%
+}
+
+
+
+
+
+
+
+
  /* -----------Landing Page----------  */
+ /* ------------------------------------------ */
+ /* ------------------------------------------ */
+ /* ------------------------------------------ */
+ /* ------------------------------------------ */
  .center{
    display:flex;
    justify-content: center;
+   margin:1rem 0;
  }
 
 .title{
   /* font-family: 'Mansalva', cursive; */
   font-family: 'Lakki Reddy', cursive;
+  font-family: "FrigidaireW01-Regular";
 
   display:flex;
   align-content: center;
   color:#f9f8eb;
   color:#e40475;
+  color:#f59904;
   text-shadow: white .4rem .4rem .5rem;
-  font-size:4.5rem;
+  font-size:3.7rem;
   margin-bottom: -.5rem;
+  margin-top:2rem;
+}
+
+.title-landing{
+  font-family: "FrigidaireW01-Regular";
+  color:#f59904;
+  color:#e40475;
+  text-shadow: white .2rem .2rem .3rem;
+  font-size:3.3rem;
+  display:flex;
+  align-content: left;
+  margin-left: -5rem;
 }
 
 .sub-title{
@@ -224,7 +324,7 @@ h1 {
 }
 
 .intro{
-  margin-top:1.5rem;
+  margin-top:5.5rem;
 }
 
 .intro-text{
@@ -233,6 +333,7 @@ h1 {
   justify-content: left;
   color:#f8c43a;
   padding:.5rem;
+  margin-left: -2rem;
   margin-right:5rem;
   font-size:1.8rem;
 }
@@ -259,7 +360,7 @@ h1 {
   position: absolute;
   display:flex;
   justify-content: center;
-  margin-top:1.9rem;
+  margin-top:-3rem;
 }
 
 .sign-up-div{
@@ -294,37 +395,6 @@ h1 {
 
 
 
+
 /* ----------- Door Open Animation ---------------- */
 
-.backDoor
-{
-  background-color: white;
-  width:10rem;
-  /* position:relative; */
-  /* width:200px;
-  height:300px; */
-  
-  margin: 0 auto;
-  margin-top:50px;
-}
-
-.door
-{
-  /* background-color: brown; */
-  /* position:absolute; */
-  /* top:0px;
-  left:0px; */
-  /* width:200px;
-  height:300px; */
-  /* -webkit-transform-origin: right; */
-  
-  transform-origin: right; 
-  /*Speed of the Door animation*/
-  transition: all 3.5s ease-in-out;
-}
-
-.doorOpen
-{
-  /* prespectiv creates the door open effect*/ 
-  /* transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-120deg); */
-}

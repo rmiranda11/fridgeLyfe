@@ -15,7 +15,7 @@ import Button from "react-bootstrap/Button"
 const SignInPage = () => (
     <div className={"intro"}>
         <h3 className="sub-title">Sign In</h3>
-        <SignInForm /><br/>
+        <SignInForm /><br />
         {/* <PasswordForgetLink/> */}
         {/* <SignUpLink /> */}
     </div>
@@ -41,7 +41,6 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE })
-                this.props.history.push(ROUTES.HOME)
             })
             .catch(error => {
                 this.setState({ error })
@@ -76,14 +75,14 @@ class SignInFormBase extends Component {
                     type="password"
                     label="Password"
                     variant="outlined"
-                /><br />            {error && <p className="error">{error.message}</p>}
+                /><br /> {error && <p className="error">{error.message}</p>}
                 <br /><br />
-                
-                <Button 
-                className={"signup-btn"}
-                disabled={isInvalid} 
-                variant="light"
-                type="submit">
+
+                <Button
+                    className={"signup-btn"}
+                    disabled={isInvalid}
+                    variant="light"
+                    type="submit">
                     Sign In
             </Button>
             </form>
