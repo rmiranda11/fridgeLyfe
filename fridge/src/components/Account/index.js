@@ -9,9 +9,15 @@ function AccountPage() {
     <AuthUserContext.Consumer>
         {authUser => (
         <div>
-            <h1>Account Page: {authUser.email}</h1>
-            <PasswordForgetForm />
-            <PasswordChangeForm />
+            <h4>Account Page: {authUser.email}</h4>
+            {/* <div className="pw-forget">
+                <p></p>
+                <PasswordForgetForm />
+            </div> */}
+            <div className="pw-change">
+                <h3>Change PassWord</h3>
+                <PasswordChangeForm />
+            </div>
         </div>
     )}
     </AuthUserContext.Consumer>

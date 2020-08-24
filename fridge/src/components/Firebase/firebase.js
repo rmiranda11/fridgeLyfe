@@ -78,6 +78,10 @@ class Firebase {
   //*** Food API */
 
   userFood = (uid,itemId) => this.db.ref(`food/undefined/${uid}`)
+  
+  // userFood = (uid) => this.db.ref(`users/${uid}/food`)
+  // userFood2 = (uid) => this.db.ref(`users/food`)
+
 
   
   food = (uid) => this.db.ref(`food/${uid}`)

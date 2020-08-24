@@ -247,12 +247,6 @@ const checkboxes = {
             checked: false
         },
         {
-            key: 34,
-            name: " Kiwi",
-            value: 7,
-            checked: false
-        },
-        {
             key: 35,
             name: " Leeks",
             value: 14,
@@ -266,7 +260,7 @@ const checkboxes = {
         },
         {
             key: 37,
-            name: " Lettuces",
+            name: " Lettuce",
             value: 7,
             checked: false
         },
@@ -320,7 +314,7 @@ const checkboxes = {
         },
         {
             key: 53,
-            name: " Swish Chard",
+            name: " Swiss Chard",
             value: 3,
             checked: false
         },
@@ -353,7 +347,7 @@ const checkboxes = {
         },
         {
             key: 103,
-            name: " Eggs in Shell",
+            name: " Eggs",
             value: 28,
             checked: false
         },
@@ -472,12 +466,12 @@ const checkboxes = {
             value: 2,
             checked: false
         },
-        // {
-        //     key: 213,
-        //     name: "Corned Beef *packaged*",
-        //     value: 7,
-        //     checked: false
-        // },
+        {
+            key: 213,
+            name: " Fish",
+            value: 2,
+            checked: false
+        },
         {
             key: 214,
             name: " Raw Sausage",
@@ -486,7 +480,7 @@ const checkboxes = {
         },
         {
             key: 215,
-            name: " Hard Sausage",
+            name: " Cured Sausage",
             value: 21,
             checked: false
         },

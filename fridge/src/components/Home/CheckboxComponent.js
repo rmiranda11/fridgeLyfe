@@ -14,8 +14,6 @@ function Checkboxes (props){
         <input
             type="checkbox" 
             className={"check-boxes"} 
-            // name={props.name} 
-            // value={props.value} 
             checked={props.item.checked} 
             onChange={() => props.handleChange(props.item.key)} 
         />

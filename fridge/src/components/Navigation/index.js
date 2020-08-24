@@ -29,14 +29,14 @@ const Navigation = () => (
 
 const NavigationAuth = ({authUser}) => (
 <Navbar className="navbar" expand="lg">
-  <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
+  <Navbar.Brand href="./" className="navbar-title">Fridge Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">
     <Nav.Link href="./home">Home</Nav.Link>
-    <Nav.Link href="./account">Account</Nav.Link>
+    {/* <Nav.Link href="./account">Account</Nav.Link> */}
     {/* {authUser.roles.includes(ROLES.ADMIN) && ( */}
-    <Nav.Link href="./admin">Admin</Nav.Link>
+    {/* <Nav.Link href="./admin">Admin</Nav.Link> */}
     {/* )} */}
       {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -53,7 +53,7 @@ const NavigationAuth = ({authUser}) => (
 
 const NavigationNonAuth = () => (
 <Navbar className="navbar"  expand="lg">
-  <Navbar.Brand href="./">Fridge-Lyfe</Navbar.Brand>
+  <Navbar.Brand href="./"  className="navbar-title">Fridge Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">

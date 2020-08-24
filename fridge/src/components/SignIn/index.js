@@ -41,6 +41,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE })
+                this.props.history.push(ROUTES.HOME);
             })
             .catch(error => {
                 this.setState({ error })

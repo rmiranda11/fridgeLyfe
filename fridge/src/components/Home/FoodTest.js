@@ -13,6 +13,7 @@ import Table from "react-bootstrap/table"
 import Modal from "react-bootstrap/Modal"
 
 import checkboxes from "./checkboxes"
+import Facts from "./Facts"
 
 import _ from 'lodash';
 
@@ -63,16 +64,21 @@ class FoodBase extends Component {
             checkboxDataMeats: checkboxes.meats,
             timeLeft: '',
             toggle:false,
+            search:""
         }
 
         this.handleChange = this.handleChange.bind(this)
         this.onChangeTime = this.onChangeTime.bind(this)
-        this.handleClick = this.handleClick.bind(this)
+        this.handleShow= this.handleShow.bind(this)
+        this.handleHide= this.handleHide.bind(this)
 
     }
 
-    handleClick(){
-        // this.setState({toggle : !toggle})
+    handleShow(){
+        this.setState({toggle : true})
+    }
+    handleHide(){
+        this.setState({toggle : false})
     }
 
 
@@ -188,8 +194,6 @@ class FoodBase extends Component {
         event.preventDefault()
     }
 
-
-
     Timer = (itemTime, moment) => {
         const RED = {color:"red"}
         const ORANGE = {color:"orange"}
@@ -218,18 +222,15 @@ class FoodBase extends Component {
         )
     }
 
+ 
     onChangeText = event => {
         this.setState({ text: event.target.value })
+
     }
 
     onChangeTime = event => {
 
-        const immediateTime = moment().format()
-
-        const momentStr = immediateTime
-
         this.setState({ time: event.target.value })
-        // this.setState({ moment: momentStr })
         this.setState({ moment: Date.now() })
 
     }
@@ -258,12 +259,23 @@ class FoodBase extends Component {
         event.preventDefault();
     }
 
-    componentDidMount() {
+    componentDidMount() {   
 
+         <AuthUserContext.Consumer>
+                {authUser => (
+          
+                    this.setState({
+                        authUser: authUser
+                    })
+                )}
+        </AuthUserContext.Consumer>
         
+        console.log(this.state.authUser)
+
+
         this.setState({ loading: true })
 
-
+      
         this.props.firebase.food().on("value", snapshot => {
             const foodObj = snapshot.val()
             if (foodObj) {
@@ -273,7 +285,6 @@ class FoodBase extends Component {
                     uid: key,
                 }));
 
-                console.log(foodList)
 
                 foodList.map(item => {
                     const moment = item.moment
@@ -282,15 +293,12 @@ class FoodBase extends Component {
         
                     const modTime = time * 86400000
                     const newMoment = modTime + moment
-                    const difference = newMoment -Date.now() 
+                    const difference = newMoment - Date.now() 
                     const d = difference/86400000
-                    console.log(item.text)
-                    console.log(d)
                     
                     item.timeLeft = d
                 })
         
-
 
                 this.setState({
                     food: foodList,
@@ -305,12 +313,17 @@ class FoodBase extends Component {
 
     }
 
-    // componentDidMount(){
-    //     this.state.food.map(item)
-    // }
+    onSearch = (text) => {
+        const str = text.replace(/\s/g, '');
+        const search = 'https://www.allrecipes.com/search/results/?wt='+str+'&sort=re'
+
+        return(
+            search
+        )
+    
+    }
 
     onRemoveFood = uid => {
-        // console.log(uid)
         this.props.firebase.userFood(uid).remove();
     };
 
@@ -321,8 +334,7 @@ class FoodBase extends Component {
 
 
     render() {
-        const { text, food, loading, time, timeLeft } = this.state;
-        console.log(food)
+        const { text, food, loading, time } = this.state;
 
         const tabStyle = {
             backgroundColor: "teal",
@@ -345,7 +357,8 @@ class FoodBase extends Component {
             fontSize:"1rem",   
             margin:".2 .5rem",
             border:"solid white 2",
-            color:"white",                
+            color:"white",
+            // width:"13rem"                
         }
 
 
@@ -359,10 +372,6 @@ class FoodBase extends Component {
         }
 
 
-
-
-
-
         return (
 
             <AuthUserContext.Consumer>
@@ -370,6 +379,7 @@ class FoodBase extends Component {
                     <React.Fragment>
                         
                         {loading ? <div className="title center">Loading...</div> : 
+                            <div className="row">
                                 <Tabs className="col-sm-8">
                                     <TabList className="tab-list">
                                         <Tab style={tabStyle}>My Fridge</Tab>
@@ -382,15 +392,19 @@ class FoodBase extends Component {
                                 {food ? (
 
                                     <div className="foodList tbody col-sm-12">
-                                        <Table striped bordered hover size="sm" className="table" responsive="small">
+                                        <Table striped bordered hover size="sm" className="table" responsive="sm">
 
                                             <thead>
-                                                <tr>
+                                                <tr className="item-text2">
                                                     <th className="item-text">Items</th>
-                                                    <th className={"countdown-wrapper"}>Time Left</th>
+                                                    <th className="item-text">Time Left</th>
+                                                    <th className="item-text">🗑️</th>
+                                                    <th className="item-text book">📕</th>
                                                 </tr>
+                                                
                                             </thead>
                                             {
+
                                                 // part where days get sorted
                                                 _.sortBy(food, ["timeLeft"]).map(item => {
                                                     const itemID = item.userId
@@ -399,8 +413,6 @@ class FoodBase extends Component {
                                                     const itemTime = item.time
                                                     const moment = item.moment
                                                     
-                                        
-
                                                     
                                                     const MixedComponent = () => (
                                                         <tr>
@@ -420,6 +432,18 @@ class FoodBase extends Component {
                                                                 onClick={() => this.onRemoveFood(item.uid)}
                                                                 >&#10060;</Button>
                                                             </td>
+                                                            <td>
+                                                                <Button
+                                                                className={"search-button"}
+                                                                variant="light"
+                                                                key={item.uid}
+                                                                type="button"
+                                                                target="_blank" 
+                                                                rel="noopener noreferrer"
+                                                                href={this.onSearch(item.text)}
+                                                                onClick={() => this.onSearch(item.text)}
+                                                                >&#128269;</Button>
+                                                            </td>
                                                         </tr>
                                                     )
                                             
@@ -428,7 +452,7 @@ class FoodBase extends Component {
 
                                                         return (
                                                             <tbody key={item.uid}>
-                                                                <MixedComponent/>                      
+                                                                <MixedComponent/>
                                                             </tbody>
                                                         )
                                                     }
@@ -439,7 +463,7 @@ class FoodBase extends Component {
                                         </Table>
                                     </div>
                                 ) : (
-                                        <h2 className="sub-title">Please add food items</h2>
+                                        <h3 className="sub-title">Please add food items.</h3>
                                     )}
                             </TabPanel>
                             <TabPanel>
@@ -466,7 +490,7 @@ class FoodBase extends Component {
                                             <Form.Control
                                                 name="time"
                                                 placeholder="Days until Expiration"
-                                                type="text"
+                                                type="number"
                                                 value={time}
                                                 onChange={this.onChangeTime}
                                             //   required={true}
@@ -481,12 +505,11 @@ class FoodBase extends Component {
                                             variant="primary"
                                             type="submit"
                                             style={{backgroundColor:"teal"}}
-                                            onClick={this.handleClick()}
-                                        // disabled={time < 1}
                                         >Add Item</Button><br /><br />
 
                                     </form>
-                                </div>                                </TabPanel>
+                                </div>                                
+                            </TabPanel>
                             <TabPanel>
                                         <form
                                             className={"checkboxForm"}
@@ -494,12 +517,12 @@ class FoodBase extends Component {
                                             name="checkboxform"
                                             onSubmit={event => this.addToFoodDb(event, authUser)}>
 
-                                            <h2 className="sub-title quick-select center">Quick Select</h2>
+                                            <h2 className="sub-title quick-select2 center">Quick Select</h2>
                                             <p className="quick-select-text">Went Grocery Shopping? Add multiple items all at once with the form below. All recommeded expiration times made by your fellow <a href="https://www.fsis.usda.gov/wps/portal/fsis/topics/food-safety-education/get-answers/food-safety-fact-sheets/safe-food-handling">USDA</a></p>
 
-                                            {/* <h4 className="">Fruit</h4> */}
-                                            <Collapsible trigger={FoodCollapse("Fruit","down")} triggerWhenOpen={FoodCollapse("Fruit", "up")}>
+                                            <div className="check-container row">
 
+                                            <Collapsible trigger={FoodCollapse("Fruit","down")} triggerWhenOpen={FoodCollapse("Fruit", "up")}>
                                             {this.state.checkboxDataFruit.map(item => (
                                                 <label
                                                     key={item.key}>      
@@ -592,10 +615,25 @@ class FoodBase extends Component {
                                             ))
                                             }
                                           </Collapsible>
+                                          </div>
+
+                                        <Modal show={this.state.toggle} onHide={this.handleHide}>
+                                    
+                                            <Modal.Header closeButton>
+                                            <Modal.Title className="sub-title">Items added to My Fridge successfully</Modal.Title>
+                                            </Modal.Header>
+                                            {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
+                                            <Modal.Footer>
+                                            <Button variant="secondary" onClick={this.handleHide}>
+                                                Close
+                                            </Button>
+                                            </Modal.Footer>
+                                        </Modal>
 
                                             <br />
                                             <Button
-                                                
+                                                className="check-btn"
+                                                onClick={this.handleShow}
                                                 variant="primary"
                                                 type="submit"
                                                 style={{backgroundColor:"teal"}}
@@ -603,6 +641,12 @@ class FoodBase extends Component {
                                         </form></TabPanel>
                                         </div>
                                 </Tabs>
+                                <div className="col-sm-4">
+                                <Facts />
+                                {/* <br/><br/> */}
+                                {/* <img className="img" src="https://images-na.ssl-images-amazon.com/images/I/71dUhdX-bFL._AC_SX425_.jpg"></img>                         */}
+                                </div>
+                            </div>
                         }
 
                     </React.Fragment>

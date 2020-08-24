@@ -1,3 +1,5 @@
+
+
 body {
   /* margin: 0;
   padding: 0; */
@@ -11,9 +13,15 @@ body {
   /* background-color: #e40475; */
 }
 
-/* tr:nth-child(odd) {
-  background-color: black;
-} */
+.table td{
+  vertical-align: middle;
+}
+
+.pw-forget{
+  display:flex;
+  justify-content: center;
+  margin:3rem;
+}
 
 /* --------- Time Component ----------- */
 * {
@@ -40,13 +48,6 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 }
-/* 
-.countdown-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-} */
 
 .expired{
   color:black;
@@ -54,13 +55,16 @@ h1 {
   display:flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .margin{
   margin:1rem;
 }
 
+.navbar-title{
+  font-family: "FrigidaireW01-Regular";
+
+}
  /* ------------------ End Time Component ------------------ */
 
 
@@ -89,29 +93,32 @@ h1 {
  
  .checkboxForm{
   margin: 1rem 4rem;
-  /* padding:2rem; */
  }
 
  .countdown-wrapper {
-   margin:0 4rem; 
-   width:14rem;
-   /* display: flex;
-   justify-content: center; */
+   margin:0 2rem; 
+   width:12rem;
    font-family: 'Lakki Reddy', cursive;
    color:#e40475;
    font-size:1.3rem;
   display:flex;
-
+  align-items: center;
  }
 
- .item-text{
+ th.item-text{
   font-family: 'Lakki Reddy', cursive;
   color:#e40475;
-  font-size:1.5rem;
-  margin:2rem;
-  width: 4rem;
-
+  font-size:1.8rem;
+  text-align: center;
+  vertical-align: baseline;
+  padding-top:1rem;
  }
+
+ .item-text2{
+  margin-left:2rem;
+  color:white;
+ }
+
  .foodInputBox, .timeInputBox{
    width:15rem;
    margin:2rem;
@@ -120,30 +127,30 @@ h1 {
  .foodList{
   display:flex;
   justify-content: center;
-  width:90%;
-  margin:0 1.5rem;
+  width:100%;
+  margin:0rem 0rem;
   font-size:16px;
-  /* border-radius: 80%; */
+  border:solid 2px #e40475;
  }
 
  .fruits{
    width:auto;
-   /* background-color: red; */
  }
 
- .quick-select{
+ .quick-select .quick-select2{
    margin:1rem;
-   /* color:white; */
    color:#e40475;
  }
 
  .quick-select{
    margin:.4rem 8rem;
+   color:#e40475;
+
  }
 
  .quick-select-text{
   font-size:1.5rem;
-  margin:.5rem 10rem .5rem 0;
+  /* margin:.5rem 10rem .5rem 0; */
   margin-bottom:2.7rem;
   color:white;
   font-family: 'Quicksand', sans-serif;
@@ -154,10 +161,7 @@ h1 {
   margin:1rem 8rem;
   margin-bottom:2rem;
   color:white;
-  /* display:flex; */
   font-family: 'Quicksand', sans-serif;
-
-  /* justify-content: center; */
  }
 
  .foodItemForm{
@@ -171,8 +175,13 @@ h1 {
 
 .food-item{
   margin:10rem;
+  font-family: 'Quicksand', sans-serif;
 }
+
+
  /* ------------------------------- Buttons --------------------------------- */
+
+
  .foodItemBtn{
   display:flex;
   justify-content: center;
@@ -191,6 +200,27 @@ h1 {
    font-family: 'Quicksand', sans-serif;
 
  }
+ .explore-btn{
+   font-weight: bold;
+   position: absolute;
+   display:flex;
+   /* align-items: center; */
+   /* justify-content: center; */
+   margin-right:10rem;
+   top:5rem;
+   font-family: 'Quicksand', sans-serif;
+  background-color:#e40475;
+  color:white;
+  width:9rem;
+  height:3.6rem;
+  font-size:2.1rem;
+  font-family: 'Lakki Reddy', cursive;
+  vertical-align: middle;
+  right:-7.5rem;
+  /* padding-right:6rem; */
+ 
+}
+
 
  .login-btn-2{
   font-weight: bold;
@@ -240,7 +270,6 @@ h1 {
   margin:3rem auto 0;
   margin-right:4rem;  
   font-size:25px;
-  /* border:solid 2px black; */
  }
 
  .food-list{
@@ -252,6 +281,8 @@ h1 {
 
 .table{
   background-color: white;
+  /* display:flex; */
+  /* align-content: center; */
 }
 
 .food-title{
@@ -274,11 +305,6 @@ h1 {
 
 
 
-
-
-
-
-
  /* -----------Landing Page----------  */
  /* ------------------------------------------ */
  /* ------------------------------------------ */
@@ -288,6 +314,10 @@ h1 {
    display:flex;
    justify-content: center;
    margin:1rem 0;
+ }
+
+ .door{
+   /* border:#e40475 solid 2px; */
  }
 
 .title{
@@ -321,6 +351,8 @@ h1 {
   font-family: 'Play', sans-serif;
   display:flex;
   justify-content: left;
+  color:#e40475;
+
 }
 
 .intro{
@@ -396,5 +428,225 @@ h1 {
 
 
 
-/* ----------- Door Open Animation ---------------- */
+/* ----------- Cards ---------------- */
+
+.card{
+  border:solid 2px #e40475;
+}
+
+.card-img{
+  width:15.5rem;
+  height:12rem;
+  margin: 0 auto;
+  display:flex;
+  justify-content: center;
+  
+}
+
+.card-title{
+  font-family: 'Lakki Reddy', cursive;
+  text-shadow:#e40475 .08rem .09rem .09rem;
+  display:flex;
+  justify-content: center;
+  font-size:1.9rem;
+  /* font-weight: bold; */
+  color:white;
+}
+
+.card-text{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color:white;
+  display:flex;
+  justify-content: left;
+  text-align: center;
+  margin:.3rem;
+}
+
+.img{
+  width: '20rem';
+  height:'27rem';
+  margin-left:-3rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .expired{
+    margin:0 -2rem;
+  }
+  .table {
+    width:3rem;
+  }
+
+  .food-list{
+    opacity: 100%;
+
+  }
+
+  .foodList{
+    border-top:solid 1px #e40475;
+
+    opacity: 100%;
+    
+  }
+
+  th.item-text{
+    font-size:1.4rem;
+  }
+
+  .countdown-wrapper{
+    margin:-.5rem ;
+    width:7rem;
+    font-size:.9rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+    vertical-align: middle;
+ }
+
+ .x-button{
+   margin:0;
+ }
+
+ 
+ .react-tabs__tab{
+   width:11rem;
+   font-size:.8rem;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .tab-list{
+   font-size:.5rem;
+ }
+
+ .title{
+   font-size: 3.3rem;
+   margin-left: 1rem;
+ }
+
+ .food-item-form{
+   margin: 0 6rem;
+   margin-right: 9rem;
+   /* width: 30rem; */
+   /* margin-right: +15rem; */
+ }
+
+ .quick-select{
+  margin:1rem 13rem 1rem 13rem;
+  color:#e40475;
+  font-family: 'Play', sans-serif;
+  border-bottom: solid 2px #e40475;
+
+ }
+ .quick-select2{
+  margin-left:-2rem;
+  font-family: 'Play', sans-serif;
+  color:#e40475;
+  border-bottom: solid 2px #e40475;
+ }
+
+ .quick-select-text{
+  margin-left:-2rem;
+ }
+
+ .create-text{
+  margin-left: 13rem;
+  margin-right:+10rem;
+  font-size:1.2rem;
+ }
+
+ .foodItemBtn{
+   width:6rem;
+ }
+
+ .card{
+   margin-left:2rem;
+   margin-top:-6rem;
+   margin-bottom: 2rem;
+   
+ }
+
+ .fact{
+   font-size: 1.2rem;
+   margin: 1rem 0;
+ }
+
+ .checks{
+   font-size:1.5rem;
+   width:auto;
+ }
+
+ .check-btn{
+   width:10rem;
+   height:4rem;
+   font-size:1.6rem;
+   margin-left:+2rem;
+ }
+
+ .tab-list{
+   padding-left:3rem;
+   padding-right:-1rem;
+ }
+
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: 20px;
+}
+
+.book:hover .tooltiptext {
+  visibility: visible;
+}
+
+ /* ///////////////////////Landing ///////////////////////// */
+
+ .sign-in-div{
+   margin-top: 2rem;
+ }
+
+ .signup-btn-2{
+   font-size:2.8rem;
+   margin-right: 2rem;
+ }
+ .landing-page{
+  display: flex;
+  flex-direction: column;
+
+ }
+
+ .intro{
+   order:-1;
+   margin: 1rem 0rem 2rem 3rem; 
+
+ }
+
+ .intro-text{
+   margin-top:2rem;
+   display: flex;
+   justify-items:center;
+   text-align: justify;
+   font-size:1.3rem;
+ }
+
+ .door{
+   order:2;
+ }
+
+}
 
