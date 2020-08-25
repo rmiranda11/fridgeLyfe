@@ -62,7 +62,9 @@ h1 {
 }
 
 .navbar-title{
-  font-family: "FrigidaireW01-Regular";
+  /* font-family: "FrigidaireW01-Regular"; */
+  font-family: 'Quicksand', sans-serif;
+
 
 }
  /* ------------------ End Time Component ------------------ */
@@ -323,7 +325,8 @@ h1 {
 .title{
   /* font-family: 'Mansalva', cursive; */
   font-family: 'Lakki Reddy', cursive;
-  font-family: "FrigidaireW01-Regular";
+  /* font-family: "FrigidaireW01-Regular"; */
+  font-family: 'Quicksand', sans-serif;
 
   display:flex;
   align-content: center;
@@ -337,7 +340,9 @@ h1 {
 }
 
 .title-landing{
-  font-family: "FrigidaireW01-Regular";
+  /* font-family: "FrigidaireW01-Regular"; */
+  font-family: 'Quicksand', sans-serif;
+
   color:#f59904;
   color:#e40475;
   text-shadow: white .2rem .2rem .3rem;
