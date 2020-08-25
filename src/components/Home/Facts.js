@@ -2,25 +2,12 @@ import React, { useState, useEffect } from "react"
 import Card from "react-bootstrap/Card"
 import factsData from "./factsData"
 
-import Button from "react-bootstrap/Button"
 
 
 const Facts = React.memo(function Facts() {
 
     const [facts] = useState(factsData);
     const [random, setRandom] = useState(facts[0])
-    const [counter, setCounter] = useState(0)
-
-    const variants = [
-        'Primary',
-        'Secondary',
-        'Success',
-        'Danger',
-        'Warning',
-        'Info',
-        'Light',
-        'Dark'
-    ]
 
     useEffect(() => {
         let mounted = true
@@ -30,7 +17,7 @@ const Facts = React.memo(function Facts() {
             setRandom(randomFact)
         }, 9000)
 
-        return () => mounted = false;
+        return () => {mounted = false};
 
     },[])
 

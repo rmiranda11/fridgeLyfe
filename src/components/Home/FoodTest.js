@@ -8,7 +8,7 @@ import { withFirebase } from "../Firebase"
 import { withAuthorization, AuthUserContext } from "../Session"
 
 import Button from "react-bootstrap/Button"
-import Form from "react-bootstrap/form"
+import Form from "react-bootstrap/Form"
 import Table from "react-bootstrap/table"
 import Modal from "react-bootstrap/Modal"
 
@@ -21,12 +21,12 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Collapsible from 'react-collapsible';
 
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import Countdown from "react-countdown";
-import { withTheme } from "@material-ui/core";
+// import { withTheme } from "@material-ui/core";
 
 
 // import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
