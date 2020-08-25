@@ -1,14 +1,10 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router-dom"
-import { compose } from "recompose"
 
-import SignUpPage, { SignUpLink } from "../SignUp"
-import { PasswordForgetLink } from "../PasswordForget"
 import { withFirebase } from "../Firebase"
 import * as ROUTES from "../../constants/routes"
 
 import TextField from '@material-ui/core/TextField';
-import Alert from 'react-bootstrap/Alert'
 import Button from "react-bootstrap/Button"
 
 

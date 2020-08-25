@@ -2,9 +2,8 @@ import React, { useState } from "react"
 import { AuthUserContext } from "../Session"
 import SignInPage from "../SignIn/index"
 import SignUpPage from "../SignUp/index"
-import { PasswordForgetForm, PasswordForgetLink } from "../PasswordForget/index"
+import { PasswordForgetForm } from "../PasswordForget/index"
 
-import Jumbotron from "react-bootstrap/Jumbotron"
 import Button from "react-bootstrap/Button"
 
 function LandingPage() {
@@ -96,6 +95,8 @@ const LandingNonAuth = () => (
             The newest App that tracks the life of your food from the moment you buy to the last recommended day of use. 
             </p>
         </div>
+        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
+
     </div>
 )
 
