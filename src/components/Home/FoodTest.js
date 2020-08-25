@@ -9,7 +9,7 @@ import { withAuthorization, AuthUserContext } from "../Session"
 
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
-import Table from "react-bootstrap/table"
+import Table from "react-bootstrap/Table"
 import Modal from "react-bootstrap/Modal"
 
 import checkboxes from "./checkboxes"
