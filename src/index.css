@@ -1,4 +1,4 @@
-
+@import url(//db.onlinewebfonts.com/c/356586c67fd843068557592c650126d1?family=FrigidaireW01-Regular);
 
 body {
   /* margin: 0;
@@ -62,8 +62,8 @@ h1 {
 }
 
 .navbar-title{
-  /* font-family: "FrigidaireW01-Regular"; */
-  font-family: 'Quicksand', sans-serif;
+  font-family: "FrigidaireW01-Regular";
+  /* font-family: 'Quicksand', sans-serif; */
 
 
 }
@@ -203,21 +203,21 @@ h1 {
 
  }
  .explore-btn{
-   font-weight: bold;
+   /* font-weight: bold; */
    position: absolute;
    display:flex;
    /* align-items: center; */
    /* justify-content: center; */
-   margin-right:10rem;
+   /* margin-right:10rem; */
    top:5rem;
    font-family: 'Quicksand', sans-serif;
   background-color:#e40475;
   color:white;
   width:9rem;
-  height:3.6rem;
-  font-size:2.1rem;
+  height:3rem;
+  font-size:1.7rem;
   font-family: 'Lakki Reddy', cursive;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   right:-7.5rem;
   /* padding-right:6rem; */
  
@@ -322,8 +322,8 @@ h1 {
 .title{
   /* font-family: 'Mansalva', cursive; */
   font-family: 'Lakki Reddy', cursive;
-  /* font-family: "FrigidaireW01-Regular"; */
-  font-family: 'Quicksand', sans-serif;
+  font-family: "FrigidaireW01-Regular";
+  /* font-family: 'Quicksand', sans-serif; */
 
   display:flex;
   align-content: center;
@@ -337,8 +337,8 @@ h1 {
 }
 
 .title-landing{
-  /* font-family: "FrigidaireW01-Regular"; */
-  font-family: 'Quicksand', sans-serif;
+  font-family: "FrigidaireW01-Regular";
+  /* font-family: 'Quicksand', sans-serif; */
 
   color:#f59904;
   color:#e40475;
@@ -417,7 +417,7 @@ h1 {
   color:red;
   margin-top:3rem;
   margin-bottom:-1rem;
-  background-color: white;
+  /* background-color: white; */
 }
 .error-password{
   width:15rem;
@@ -474,6 +474,11 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 
+  .title-landing{
+    font-size:2.7rem;
+    margin-right:1rem;
+  }
+
   .expired{
     margin:0 -2rem;
   }
@@ -499,7 +504,7 @@ h1 {
 
   .countdown-wrapper{
     margin:-.5rem ;
-    width:7rem;
+    width:8rem;
     font-size:.9rem;
     display:flex;
     justify-content: center;
@@ -565,9 +570,10 @@ h1 {
    width:6rem;
  }
 
+
  .card{
    margin-left:2rem;
-   margin-top:-6rem;
+   margin-top:4rem;
    margin-bottom: 2rem;
    
  }
@@ -634,7 +640,7 @@ h1 {
 
  .intro{
    order:-1;
-   margin: 1rem 0rem 2rem 3rem; 
+   margin: 1rem 0rem 0rem 3rem; 
 
  }
 
@@ -650,5 +656,19 @@ h1 {
    order:2;
  }
 
+ .signup-btn{
+   font-size: 1rem;
+   margin-right: 6rem;
+ }
+
+ .signup-btn-2{
+   font-size: 1rem;
+   margin-left:6.5rem;
+  margin-top:-.5rem;
+  }
+
+ .password-btn{
+   margin-top:-1rem;
+ }
 }
 

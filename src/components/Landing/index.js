@@ -11,7 +11,7 @@ function LandingPage() {
 
     const [showDiv, setShowDiv] = useState(false)
     const [showDiv2, setShowDiv2] = useState(false)
-    const [showDiv3, setShowDiv3] = useState(false)
+    // const [showDiv3, setShowDiv3] = useState(false)
     const [showDiv4, setShowDiv4] = useState(false)
     const [door, setDoor] = useState(false)
 
@@ -45,18 +45,12 @@ const LandingAuth = ({ authUser }) => (
         <div className="fridge d-flex justify-content-center col-sm-6">
             <img className={door ? "doorOpen" : 'door'} onClick={toggleDoor} src="https://i.ibb.co/41LT43w/fridge.png" alt="fridge" border="0" />
             <div style={showDiv2 || showDiv || showDiv4 ? {display:"none"} : {display:"block"}} className="login">
-            <Button variant="light" className="explore-btn center" size="lg" style={showDiv ? {display:"none"} : {display:"block"}} href="../home">Explore</Button>
-            {/* <Button variant="light" className="login-btn-2" style={showDiv2 ? {display:"none"} : {display:"block"}} onClick={handleClick2}>Sign Up</Button> */}
+                <Button variant="light" className="explore-btn center" size="lg" style={showDiv ? {display:"none"} : {display:"block"}} href="../home">Explore</Button>
             </div>
-            {/* <div className="sign-in-div" style={showDiv ? {display:"block"} : {display:"none"}}><SignInPage /> <PasswordForgetLink /> <SignUpLink /></div>
-            <div className="sign-up-div" style={showDiv2 ? {display:"block"} : {display:"none"}}><SignUpPage /></div>
-            <div className="pw-forget-div" style={showDiv4 ? {display:"block"} : {display:"none"}}><PasswordForgetForm /></div> */}
-
         </div>
 
         <div className="intro col-sm-6">
             <h1 className="title-landing">Fridge Lyfe</h1>
-            {/* <h4 className="sub-title"><q>Freshness makes the ❤️ last longer</q></h4> */}
             <p className="intro-text">Divert from your old ways! Never throw out spoiled food again with Fridge Lyfe. 
             The newest App that tracks the life of your food from the moment you buy to the last recommended day of use. 
             </p>
@@ -75,7 +69,7 @@ const SignUpLink = () => (
   const PasswordForgetLink = () => {
     return(
     <div className="center">
-        <Button variant={"light"}  onClick={handleClick4} >Forgot Password?</Button>
+        <Button className="password-btn" variant={"light"}  onClick={handleClick4} >Forgot Password?</Button>
     </div>
     )
 }
