@@ -95,8 +95,6 @@ const LandingNonAuth = () => (
             The newest App that tracks the life of your food from the moment you buy to the last recommended day of use. 
             </p>
         </div>
-        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
-
     </div>
 )
 
