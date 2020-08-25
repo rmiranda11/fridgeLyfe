@@ -7,7 +7,7 @@ import moment from 'moment';
 import { withFirebase } from "../Firebase"
 import { withAuthorization, AuthUserContext } from "../Session"
 
-import Button from "react-bootstrap/button"
+import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/form"
 import Table from "react-bootstrap/table"
 import Modal from "react-bootstrap/Modal"
