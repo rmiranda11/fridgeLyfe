@@ -657,7 +657,7 @@ h1 {
 
  .intro-text{
    margin-top:2rem;
-   margin-left:.2rem;
+   margin-left:-1rem;
    display: flex;
    justify-items:center;
    text-align: justify;
@@ -668,6 +668,9 @@ h1 {
    order:2;
  }
 
+ .sign-in{
+   margin-left:-1rem;
+ }
  .signup-btn{
    font-size: 1rem;
    margin-right: 6rem;
@@ -689,6 +692,18 @@ h1 {
    flex-wrap:wrap;
    margin-left:-4rem;
    margin-bottom:-2rem;
+ }
+
+ .login-btn, .login-btn-2{
+   margin-left:-1rem;
+ }
+
+ img{
+   justify-content: center;
+ }
+
+ .sign-up-div{
+   margin-left:2rem;
  }
 }
 
