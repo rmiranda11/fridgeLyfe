@@ -44,7 +44,7 @@ const LandingAuth = ({ authUser }) => (
         <div className="fridge d-flex justify-content-center col-sm-6">
             <img className={door ? "doorOpen" : 'door'} onClick={toggleDoor} src="https://i.ibb.co/41LT43w/fridge.png" alt="fridge" border="0" />
             <div style={showDiv2 || showDiv || showDiv4 ? {display:"none"} : {display:"block"}} className="login">
-                <Button variant="light" className="explore-btn center" size="lg" style={showDiv ? {display:"none"} : {display:"block"}} href="../home">Explore</Button>
+                <Button variant="light" className="explore-btn" size="lg" style={showDiv ? {display:"none"} : {display:"block"}} href="../home">Explore</Button>
             </div>
         </div>
 
