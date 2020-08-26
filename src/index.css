@@ -701,17 +701,21 @@ h1 {
    margin-top:-1rem;
  }
 
+ .explore-btn{
+  margin-left:-3rem;
+}
+
  .title-landing{
    font-size:3.7rem;
    margin-bottom:-2rem;
  }
 
  .login-btn, .login-btn-2{
-   margin-left:-4rem;
+   margin-left:-3rem;
  }
 
  .explore-btn{
-  margin-left:-4rem;
+  margin-left:-3rem;
 }
 
  .sign-up-div{
