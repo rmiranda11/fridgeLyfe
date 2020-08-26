@@ -96,7 +96,7 @@ h1 {
  }
 
  .countdown-wrapper {
-   margin:0 2rem; 
+   margin:0 0 0 3rem; 
    width:12rem;
    font-family: 'Lakki Reddy', cursive;
    color:#e40475;
@@ -205,10 +205,7 @@ h1 {
    /* font-weight: bold; */
    position: absolute;
    display:flex;
-   /* align-items: center; */
-   /* justify-content: center; */
-   /* margin-right:10rem; */
-   top:5rem;
+   top:6rem;
    font-family: 'Quicksand', sans-serif;
   background-color:#e40475;
   color:white;
@@ -306,7 +303,7 @@ h1 {
 
 
 
- /* -----------Landing Page----------  */
+ /* -----------Landing Page------------------- */
  /* ------------------------------------------ */
  /* ------------------------------------------ */
  /* ------------------------------------------ */
@@ -317,6 +314,9 @@ h1 {
    margin:1rem 0;
  }
 
+ .navbar-title{
+  text-shadow:#e40475 .1rem .1rem .1rem;
+}
 
 .title{
   /* font-family: 'Mansalva', cursive; */
@@ -344,9 +344,6 @@ h1 {
   /* font-family: 'Quicksand', sans-serif; */
   font-family: 'Monoton', cursive;
   font-family: 'Fontdiner Swanky', cursive;
-
-
-
   color:#f59904;
   color:#e40475;
   text-shadow: white .2rem .2rem .3rem;
@@ -361,7 +358,6 @@ h1 {
   display:flex;
   justify-content: left;
   color:#e40475;
-
 }
 
 .intro{
@@ -703,7 +699,7 @@ h1 {
 
  .explore-btn{
   margin-left:-4rem;
-  right:-5.5rem;
+  right:-4.5rem;
 }
 
  .title-landing{
@@ -726,6 +722,14 @@ h1 {
  .navbar{
    width:100%;
    box-shadow: #e40475 .2rem .3rem .3rem;
+ }
+
+ .navbar-title{
+   text-shadow:#e40475 .1rem .1rem .1rem;
+ }
+
+ .title{
+   margin-bottom: .1rem;
  }
 }
 
