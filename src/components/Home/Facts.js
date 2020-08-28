@@ -15,7 +15,7 @@ const Facts = React.memo(function Facts() {
         setInterval(() => {
             var randomFact = facts[Math.floor(Math.random() * facts.length)];
             setRandom(randomFact)
-        }, 3000)
+        }, 9000)
 
         return () => {mounted = false};
 
