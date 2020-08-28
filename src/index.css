@@ -10,11 +10,17 @@ body {
 
 .navbar{
   background-color: skyblue;
+  box-shadow: #e40475 .2rem .3rem .3rem;
   /* background-color: #e40475; */
 }
 
 .table td{
   vertical-align: middle;
+}
+
+.navbar{
+  width:101%;
+  box-shadow: #e40475 .2rem .3rem .3rem;
 }
 
 
@@ -50,6 +56,8 @@ h1 {
   display:flex;
   justify-content: center;
   align-items: center;
+  margin:auto;
+
 }
 
 .margin{
@@ -202,7 +210,6 @@ h1 {
 
  }
  .explore-btn{
-   /* font-weight: bold; */
    position: absolute;
    display:flex;
    top:6rem;
@@ -213,28 +220,38 @@ h1 {
   height:3rem;
   font-size:1.7rem;
   font-family: 'Lakki Reddy', cursive;
-  /* vertical-align: middle; */
   right:-7.5rem;
-  /* padding-right:6rem; */
- 
 }
-
+ .learn-btn{
+  width:9rem;
+  height:3rem;
+   position: absolute;
+   display:flex;
+   top:10rem;
+   font-family: 'Quicksand', sans-serif;
+  background-color:white;
+  color:#e40475;
+  font-size:1.2rem;
+  font-weight: bold;
+  font-family: 'Lakki Reddy', cursive;
+  right:-7.5rem;
+  vertical-align: middle;
+  align-items: center;
+  padding-top:.8rem;
+}
 
  .login-btn-2{
   font-weight: bold;
   position: absolute;
   display:flex;
-  /* align-items: center; */
   justify-content: center;
   top:10rem;
   width:6rem;
   font-family: 'Quicksand', sans-serif;
-
  }
 
  .signup-btn{
   display:flex;
-  /* align-items: center; */
   justify-content: center;
   margin-left:4.5rem;
 }
@@ -247,6 +264,12 @@ h1 {
 
 .pw-forget-btn{
   margin-left:2rem;
+}
+
+.sign-out-btn{
+  display:flex;
+  justify-content: right;
+  align-content: right;
 }
 
 
@@ -279,8 +302,6 @@ h1 {
 
 .table{
   background-color: white;
-  /* display:flex; */
-  /* align-content: center; */
 }
 
 .food-title{
@@ -316,6 +337,7 @@ h1 {
 
  .navbar-title{
   text-shadow:#e40475 .1rem .1rem .1rem;
+  margin-left: 1rem;
 }
 
 .title{
@@ -324,10 +346,6 @@ h1 {
   /* font-family: "FrigidaireW01-Regular"; */
   font-family: 'Monoton', cursive;
   font-family: 'Fontdiner Swanky', cursive;
-
-
-  /* font-family: 'Quicksand', sans-serif; */
-
   display:flex;
   align-content: center;
   color:#f9f8eb;
@@ -582,9 +600,8 @@ h1 {
    width:6rem;
  }
 
-
  .card{
-   margin-left:2rem;
+   margin-left:4rem;
    margin-top:-4rem;
    margin-bottom: 2rem;
    
@@ -604,7 +621,7 @@ h1 {
    width:10rem;
    height:4rem;
    font-size:1.6rem;
-   margin-left:+2rem;
+   margin-left:5rem;
  }
 
  .tab-list{
@@ -678,7 +695,7 @@ h1 {
    justify-content:center;
  }
  .sign-in{
-   margin-left:-1rem;
+   margin-left:-2rem;
  }
  .signup-btn{
    font-size: 1rem;
@@ -687,17 +704,19 @@ h1 {
 
  .signup-btn-2{
    font-size: 1rem;
-   margin-left:6.5rem;
+   margin-left:5.5rem;
     margin-top:-.5rem;
   }
-
-
 
  .password-btn{
    margin-top:-1rem;
  }
 
  .explore-btn{
+  margin-left:-4rem;
+  right:-4.5rem;
+}
+ .learn-btn{
   margin-left:-4rem;
   right:-4.5rem;
 }
@@ -714,13 +733,17 @@ h1 {
  .explore-btn{
   margin-left:-3rem;
 }
+ .learn-btn{
+  margin-left:-3rem;
+}
 
  .sign-up-div{
-   margin-left:2rem;
+   margin-left:1.5rem;
+   margin-top:3rem;
  }
 
  .navbar{
-   width:100%;
+   width:103%;
    box-shadow: #e40475 .2rem .3rem .3rem;
  }
 

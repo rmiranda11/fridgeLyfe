@@ -24,11 +24,11 @@ const Navigation = () => (
 const NavigationAuth = ({authUser}) => (
 <Navbar className="navbar" expand="lg">
   <Navbar.Brand href="./" className="navbar-title">Fridge Lyfe</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Toggle aria-controls="basic-navbar-nav"/>
   <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">
     <Nav.Link href="./home">Home</Nav.Link>
-    {/* <Nav.Link href="./account">Account</Nav.Link> */}
+    <Nav.Link href="./about">About</Nav.Link>
     {/* {authUser.roles.includes(ROLES.ADMIN) && ( */}
     {/* <Nav.Link href="./admin">Admin</Nav.Link> */}
     {/* )} */}
@@ -39,7 +39,7 @@ const NavigationAuth = ({authUser}) => (
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown> */}
-      <SignOutButton />
+      <SignOutButton className="sign-out-btn"/>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
@@ -47,7 +47,7 @@ const NavigationAuth = ({authUser}) => (
 
 const NavigationNonAuth = () => (
 <Navbar className="navbar"  expand="lg">
-  <Navbar.Brand href="./"  className="navbar-title">Fridge Lyfe</Navbar.Brand>
+  <Navbar.Brand href="./" className="navbar-title">Fridge Lyfe</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">

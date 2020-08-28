@@ -10,6 +10,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home/FoodTest';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import About from '../About/About'
 
 import * as ROUTES from "../../constants/routes"
 // import { withFirebase } from '../Firebase';
@@ -31,6 +32,8 @@ return(
           <Route path={ROUTES.HOME} component={HomePage} />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.ADMIN} component={AdminPage} />
+          <Route path={ROUTES.ABOUT} component={About} />
+        
         </div>
       </Router>
 )

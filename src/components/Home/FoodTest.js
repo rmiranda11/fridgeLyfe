@@ -471,7 +471,7 @@ class FoodBase extends Component {
 
                                 <div className="food-item-form" id="foodForm">
                                     <h2 className="sub-title quick-select">Create Your Own</h2>
-                                    <p className="create-text">Create your own item to add to your Fridge. Add any odds and ends or even leftovers. Be sure to follow the USDA on recommended shelf life of both uncooked and cooked food <a href="https://www.fsis.usda.gov/wps/portal/fsis/topics/food-safety-education/get-answers/food-safety-fact-sheets/safe-food-handling/leftovers-and-food-safety/ct_index">HERE</a></p>
+                                    <p className="create-text">Create your own item to add to your Fridge. Add any odds and ends or even leftovers. Be sure to follow the <a href="https://www.fsis.usda.gov/wps/portal/fsis/topics/food-safety-education/get-answers/food-safety-fact-sheets/safe-food-handling/leftovers-and-food-safety/ct_index">USDA</a>on recommended shelf life of both uncooked and cooked food.</p>
                                     <form
                                         className={"foodItemForm"}
                                         name="foodForm"

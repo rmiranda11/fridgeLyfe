@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 
 const SignOutButton = ({ firebase }) => (
-    <Button variant="danger" onClick={firebase.doSignOut}>SignOut</Button> 
+    <Button variant="danger" className="sign-out-btn" onClick={firebase.doSignOut}>SignOut</Button> 
 
 )
 
