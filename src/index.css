@@ -230,8 +230,9 @@ h1 {
    top:10rem;
    font-family: 'Quicksand', sans-serif;
   background-color:white;
+  border:solid 2px #e40475;
   color:#e40475;
-  font-size:1.2rem;
+  font-size:1.1rem;
   font-weight: bold;
   font-family: 'Lakki Reddy', cursive;
   right:-7.5rem;
@@ -338,6 +339,7 @@ h1 {
  .navbar-title{
   text-shadow:#e40475 .1rem .1rem .1rem;
   margin-left: 1rem;
+  color:white;
 }
 
 .title{
@@ -601,7 +603,7 @@ h1 {
  }
 
  .card{
-   margin-left:4rem;
+   margin-left:2rem;
    margin-top:-4rem;
    margin-bottom: 2rem;
    
