@@ -8,7 +8,7 @@ function About() {
                 <div className="abt-div">
                     <h2 className="abt-title">Food is Knowledge</h2>
                     {/* <img className="abt-img" src="https://miro.medium.com/max/7914/1*S-H5dNe3M8GXI6UefaI9vQ.jpeg"></img> */}
-                    <img className="abt-img" src="https://tryveg.com/wp-content/uploads/2018/04/AdobeStock_73094846.jpeg"></img>
+                    <img className="abt-img" alt="World Food" src="https://tryveg.com/wp-content/uploads/2018/04/AdobeStock_73094846.jpeg"></img>
                     <h3 className="abt-intro">The home cooking game is a challenging experience. Shopping, carrying, storing, cooking, eating only to repeat it over and over again for the rest of your life. However, amazing benefits can be reaped in your future by sowing the right seeds. Take control of your health by improving the care of your body's main source of energy. Indulge in recipes carried on by your forefathers. Take on the challenge of dominating your diet and notice how fast your mood, energy, and savings will improve. Do your part in ending world hunger and protect our enviroment. Go that extra mile! Because at the end of the day... <br></br><br></br>
                     <b>You are what you eat.</b></h3>
 
@@ -47,7 +47,7 @@ function About() {
                         <li>Pack - a - Lunch</li>
                         <p>This one offers the most relief to your wallet. By taking lunch from home rather than eating out can save you around $1,200 a month. It's also a good way to not leave leftovers behind.</p>
                     </ol>
-                    <img className="abt-img-2" src="https://hub.umd.edu/sites/default/files/2019-08/image/cool_veggies.png"></img>
+                    <img className="abt-img-2"  alt="Happy Food" src="https://hub.umd.edu/sites/default/files/2019-08/image/cool_veggies.png"></img>
                 </div>
             </div>
         </div>

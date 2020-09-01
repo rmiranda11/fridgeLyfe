@@ -1,7 +1,6 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
-import * as ROLES from '../../constants/roles';
 
 
 const config = {

@@ -506,7 +506,11 @@ h1 {
 
 .card{
   border:solid 2px #e40475;
+  width:20rem;
+  height:auto;
+  margin-top:6.2rem;
 }
+
 
 .card-img{
   width:15.5rem;

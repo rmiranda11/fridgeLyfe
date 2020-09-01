@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import Checkboxes from "./CheckboxComponent"
 import { compose } from 'recompose';
-// import FinalCountdown from "./Moment"
 
 import moment from 'moment';
 import { withFirebase } from "../Firebase"
@@ -21,18 +20,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Collapsible from 'react-collapsible';
 
-// import Checkbox from '@material-ui/core/Checkbox';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import Countdown from "react-countdown";
-// import { withTheme } from "@material-ui/core";
 
-
-// import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-// import CheckBoxIcon from '@material-ui/icons/CheckBox';
-// import Favorite from '@material-ui/icons/Favorite';
-// import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 const HomePage = () => (
     <React.Fragment>
@@ -68,7 +60,7 @@ class FoodBase extends Component {
         }
 
         FoodBase.contextType = AuthUserContext
-        let context = AuthUserContext
+        // let context = AuthUserContext
 
         this.handleChange = this.handleChange.bind(this)
         this.onChangeTime = this.onChangeTime.bind(this)
@@ -265,7 +257,6 @@ class FoodBase extends Component {
 
     componentDidMount() {   
 
-        console.log(this.context)
         this.setState({ loading: true })
 
         
@@ -282,7 +273,6 @@ class FoodBase extends Component {
                 foodList.map(item => {
                     const moment = item.moment
                     const time = item.time
-                    const uTime = this.Timer(item,moment)
 
                     const modTime = time * 86400000
                     const newMoment = modTime + moment
@@ -290,7 +280,10 @@ class FoodBase extends Component {
                     const d = difference/86400000
                     
                     item.timeLeft = d
-                })
+
+                    return(item)
+                }
+                )
 
 
                 this.setState({
@@ -323,7 +316,7 @@ class FoodBase extends Component {
     };
 
     componentWillUnmount() {
-        this.props.firebase.food().off()
+        this.props.firebase.userFood(this.context.uid).off()
     }
 
 
@@ -354,7 +347,6 @@ class FoodBase extends Component {
             margin:".2 .5rem",
             border:"solid white 2",
             color:"white",
-            // width:"13rem"                
         }
 
 
@@ -409,14 +401,12 @@ class FoodBase extends Component {
                                                     const itemTime = item.time
                                                     const moment = item.moment
                                                     
-                                                    console.log(authUser)
                                                     const MixedComponent = () => (
                                                         <tr>
                                                             <td className="food-item">
                                                                 {foodItem}
                                                             </td>
                                                             <td>
-                                                                {/* {this.TimeMatch(itemTime, moment)} */}
                                                                 {this.Timer(itemTime,moment)}
                                                             </td>
                                                             <td>
@@ -452,6 +442,7 @@ class FoodBase extends Component {
                                                             </tbody>
                                                         )
                                                     }
+                                                    return(item)
                                                 })
 
                                             }

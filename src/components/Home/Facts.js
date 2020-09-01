@@ -10,20 +10,19 @@ const Facts = React.memo(function Facts() {
     const [random, setRandom] = useState(facts[0])
 
     useEffect(() => {
-        let mounted = true
 
         setInterval(() => {
             var randomFact = facts[Math.floor(Math.random() * facts.length)];
             setRandom(randomFact)
         }, 9000)
 
-        return () => {mounted = false};
+        return clearInterval();
 
     },[])
 
   
     return (
-        <Card style={{ width: '20rem', height:'auto', marginTop:"5.2rem"}} bg={random.color} className="card">
+        <Card  bg={random.color} className="card">
             <Card.Body>
                 <Card.Title className="card-title">Random Facts!</Card.Title>
                 <Card.Img variant="top" className="card-img" src={random.pic} /><br />
