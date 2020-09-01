@@ -67,6 +67,9 @@ class FoodBase extends Component {
             search:""
         }
 
+        FoodBase.contextType = AuthUserContext
+        let context = AuthUserContext
+
         this.handleChange = this.handleChange.bind(this)
         this.onChangeTime = this.onChangeTime.bind(this)
         this.handleShow= this.handleShow.bind(this)
@@ -142,7 +145,7 @@ class FoodBase extends Component {
         this.state.checkboxDataFruit.forEach(e =>
 
             e.checked ?
-                this.props.firebase.food().push({
+                this.props.firebase.userFood(authUser.uid).push({
                     text: e.name,
                     userId: authUser.uid,
                     time: e.value,
@@ -154,7 +157,7 @@ class FoodBase extends Component {
         this.state.checkboxDataVeggies.forEach(e =>
 
             e.checked ?
-                this.props.firebase.food().push({
+                this.props.firebase.userFood(authUser.uid).push({
                     text: e.name,
                     userId: authUser.uid,
                     time: e.value,
@@ -167,7 +170,7 @@ class FoodBase extends Component {
         this.state.checkboxDataDairy.forEach(e =>
 
             e.checked ?
-                this.props.firebase.food().push({
+                this.props.firebase.userFood(authUser.uid).push({
                     text: e.name,
                     userId: authUser.uid,
                     time: e.value,
@@ -180,7 +183,7 @@ class FoodBase extends Component {
         this.state.checkboxDataMeats.forEach(e =>
 
             e.checked ?
-                this.props.firebase.food().push({
+                this.props.firebase.userFood(authUser.uid).push({
                     text: e.name,
                     userId: authUser.uid,
                     time: e.value,
@@ -238,7 +241,7 @@ class FoodBase extends Component {
     // Pushes a new food item to db using state
     onCreateFoodItem = (event, authUser) => {
         
-        this.props.firebase.food().push({
+        this.props.firebase.userFood(authUser.uid).push({
             text: this.state.text,
             userId: authUser.uid,
             time: this.state.time,
@@ -259,24 +262,14 @@ class FoodBase extends Component {
         event.preventDefault();
     }
 
+
     componentDidMount() {   
 
-         <AuthUserContext.Consumer>
-                {authUser => (
-          
-                    this.setState({
-                        authUser: authUser
-                    })
-                )}
-        </AuthUserContext.Consumer>
-        
-        console.log(this.state.authUser)
-
-
+        console.log(this.context)
         this.setState({ loading: true })
 
-      
-        this.props.firebase.food().on("value", snapshot => {
+        
+        this.props.firebase.userFood(this.context.uid).on("value", snapshot => {
             const foodObj = snapshot.val()
             if (foodObj) {
 
@@ -290,7 +283,7 @@ class FoodBase extends Component {
                     const moment = item.moment
                     const time = item.time
                     const uTime = this.Timer(item,moment)
-        
+
                     const modTime = time * 86400000
                     const newMoment = modTime + moment
                     const difference = newMoment - Date.now() 
@@ -298,7 +291,7 @@ class FoodBase extends Component {
                     
                     item.timeLeft = d
                 })
-        
+
 
                 this.setState({
                     food: foodList,
@@ -310,6 +303,8 @@ class FoodBase extends Component {
                 this.setState({ food: null, loading: false })
             }
         })
+
+
 
     }
 
@@ -324,7 +319,7 @@ class FoodBase extends Component {
     }
 
     onRemoveFood = uid => {
-        this.props.firebase.userFood(uid).remove();
+        this.props.firebase.userFood2(uid,this.context.uid).remove();
     };
 
     componentWillUnmount() {
@@ -334,6 +329,7 @@ class FoodBase extends Component {
 
 
     render() {
+
         const { text, food, loading, time } = this.state;
 
         const tabStyle = {
@@ -376,7 +372,7 @@ class FoodBase extends Component {
 
             <AuthUserContext.Consumer>
                 {authUser => (
-                    <React.Fragment>
+                    <React.Fragment>``
                         
                         {loading ? <div className="title center">Loading...</div> : 
                             <div className="row">
@@ -413,7 +409,7 @@ class FoodBase extends Component {
                                                     const itemTime = item.time
                                                     const moment = item.moment
                                                     
-                                                    
+                                                    console.log(authUser)
                                                     const MixedComponent = () => (
                                                         <tr>
                                                             <td className="food-item">
@@ -463,7 +459,7 @@ class FoodBase extends Component {
                                         </Table>
                                     </div>
                                 ) : (
-                                        <h3 className="sub-title">Please add food items.</h3>
+                                        <h3 className="no-food">Add food items here 👆</h3>
                                     )}
                             </TabPanel>
                             <TabPanel>
@@ -493,17 +489,28 @@ class FoodBase extends Component {
                                                 type="number"
                                                 value={time}
                                                 onChange={this.onChangeTime}
-                                            //   required={true}
-                                            //   disabled={time === 1 ? true : false}
+                              
                                             />
 
                                         </Form.Group>
-                                        {/* <p>{time < 1 ? "Time entered cannot be less than 1" : null}</p> */}
+                                <Modal show={this.state.toggle} onHide={this.handleHide}>
+                                    
+                                    <Modal.Header closeButton>
+                                    <Modal.Title className="sub-title">Item added to My Fridge</Modal.Title>
+                                    </Modal.Header>
+                                    {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
+                                    <Modal.Footer>
+                                    <Button variant="secondary" onClick={this.handleHide}>
+                                        Close
+                                    </Button>
+                                    </Modal.Footer>
+                                </Modal>
 
                                         <Button
                                             className="foodItemBtn"
                                             variant="primary"
                                             type="submit"
+                                            onClick={this.handleShow}
                                             style={{backgroundColor:"teal"}}
                                         >Add Item</Button><br /><br />
 
@@ -620,7 +627,7 @@ class FoodBase extends Component {
                                         <Modal show={this.state.toggle} onHide={this.handleHide}>
                                     
                                             <Modal.Header closeButton>
-                                            <Modal.Title className="sub-title">Items added to My Fridge successfully</Modal.Title>
+                                            <Modal.Title className="sub-title">Items added to My Fridge</Modal.Title>
                                             </Modal.Header>
                                             {/* <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body> */}
                                             <Modal.Footer>

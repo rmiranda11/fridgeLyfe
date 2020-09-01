@@ -90,7 +90,7 @@ h1 {
   columns: 4 8em;
   vertical-align: middle;
   word-wrap: break-word;
-  width:10rem;
+  width:10.4rem;
   margin:auto;
   padding:.5rem;
   font-family: 'Quicksand', sans-serif;
@@ -101,6 +101,7 @@ h1 {
  
  .checkboxForm{
   margin: 1rem 4rem;
+  margin-left:+5rem;
  }
 
  .countdown-wrapper {
@@ -146,18 +147,38 @@ h1 {
  }
 
  .quick-select .quick-select2{
-   margin:1rem;
+   margin:1rem auto;
    color:#e40475;
+
  }
 
  .quick-select{
    margin:.4rem 8rem;
    color:#e40475;
+   /* border-bottom: solid 2px #e40475; */
+
+
+ }
+
+ /* .quick-select::after {
+  content: '';
+  display: block;
+  width: 2em;
+  height: 3px;
+  margin: 0.5em auto 1em;
+  background: var(--clr-light);
+  opacity: 0.25;
+} */
+
+ .quick-select2{
+   display: flex;
+   justify-content: center;
+   /* border-bottom: solid 2px #e40475; */
 
  }
 
  .quick-select-text{
-  font-size:1.5rem;
+  font-size:1.3rem;
   /* margin:.5rem 10rem .5rem 0; */
   margin-bottom:2.7rem;
   color:white;
@@ -177,6 +198,10 @@ h1 {
 
  }
 
+ .food-item-form{
+   margin-top:1rem;
+ }
+
  .food-title{
    margin:.8rem;
  }
@@ -184,6 +209,20 @@ h1 {
 .food-item{
   margin:10rem;
   font-family: 'Quicksand', sans-serif;
+}
+
+.no-food{
+  /* border: red 3px solid; */
+  border-radius:20px;
+  padding:1rem;
+  width:19rem;
+  font-size:1.5rem;
+  margin-right:1.2rem;
+  left:11rem;
+  position:absolute;
+  color:#e40475;
+  text-shadow:white .1rem .1rem .1rem;
+
 }
 
   /* ----------------------------- End Checkboxes --------------------------- */
@@ -273,6 +312,11 @@ h1 {
   align-content: right;
 }
 
+.foodItemBtn{
+  width:6rem;
+  margin-left:6rem;
+}
+
 
 
  /* -------------------------------- Tabs ----------------------------------- */
@@ -289,7 +333,7 @@ h1 {
  .tab-list{
   display:flex;
   justify-content: center;
-  margin:3rem auto 0;
+  margin:1.5rem auto 0;
   margin-right:4rem;  
   font-size:25px;
  }
@@ -338,7 +382,7 @@ h1 {
 
  .navbar-title{
   text-shadow:#e40475 .1rem .1rem .1rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
   color:white;
 }
 
@@ -579,6 +623,7 @@ h1 {
 
  }
  .quick-select2{
+  width:12rem;
   margin-left:-2rem;
   font-family: 'Play', sans-serif;
   color:#e40475;
@@ -602,14 +647,14 @@ h1 {
 
  .card{
    margin-left:3rem;
-   margin-top:-4rem;
+   /* margin-top:-3rem; */
    margin-bottom: 2rem;
    
  }
 
  .fact{
    font-size: 1.2rem;
-   margin: 1rem 0;
+   margin: 2rem 0;
  }
 
  .checks{
@@ -753,6 +798,10 @@ h1 {
 
  .title{
    margin-bottom: .1rem;
+ }
+
+ .no-food{
+   left:3.8rem;
  }
 }
 
