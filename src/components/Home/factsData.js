@@ -1,11 +1,11 @@
  const factsData = [
      {
-         pic:"http://justfunfacts.com/wp-content/uploads/2018/04/blueberries.jpg",
+         pic:require("./../../../public/pics/blueberries.jpg"),
          fact:"Blueberries ranked number one in antioxidant health benefits in a comparison with more than 40 fresh fruits and vegetables.",
          color:"secondary"
      },
      {
-        pic:"http://justfunfacts.com/wp-content/uploads/2015/10/pineapple-juice.jpg",
+        pic:require("../../../public/pics/pineapple-juice.jpg"),
         fact:"The word “pineapple” was first used in 1398 in reference to a pine cone. It is derived from the Spanish word “pina” which means pine cone.",
         color:"info"
     },
