@@ -81,6 +81,7 @@ class Firebase {
   // userFood = (uid,itemId) => this.db.ref(`food/undefined/${uid}`)
   
   userFood = (uid) => this.db.ref(`users/${uid}/food`)
+  
   userFood2 = (uid, authUser) => this.db.ref(`users/${authUser}/food/${uid}`)
 
 
@@ -90,5 +91,15 @@ class Firebase {
   foods = () => this.db.ref("food")
 
 }
+
+export const getStaticProps = async (context) => {
+  const fetchedData = await fetch(`${process.env.REACT_APP_DATABASE_URL}/filename.json?orderBy="$key"&limitToLast=50&auth=${process.env.REACT_APP_FIREBASE_SECRET}`);
+  const data = await fetchedData.json();
+  return {
+    props: {
+      data,
+    },
+  };
+};
 
 export default Firebase;
