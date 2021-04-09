@@ -4,14 +4,15 @@ import 'firebase/database'
 
 
 const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
+  apiKey: AIzaSyAdcNdbyz05Mi5CyoR1XQno8FreNY2oUZ4,
+  // apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_DATABASE_URL,
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_ID,
-  measurementId:process.env.REACT_APP_MEASUREMENTID
+  // appId: process.env.REACT_APP_ID,
+  // measurementId:process.env.REACT_APP_MEASUREMENTID
 };
 
 
@@ -91,15 +92,5 @@ class Firebase {
   foods = () => this.db.ref("food")
 
 }
-
-export const getStaticProps = async (context) => {
-  const fetchedData = await fetch(`${process.env.REACT_APP_DATABASE_URL}/filename.json?orderBy="$key"&limitToLast=50&auth=${process.env.REACT_APP_FIREBASE_SECRET}`);
-  const data = await fetchedData.json();
-  return {
-    props: {
-      data,
-    },
-  };
-};
 
 export default Firebase;
