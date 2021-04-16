@@ -3,8 +3,7 @@ import 'firebase/auth'
 import 'firebase/database'
 // require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-import dotenv from 'dotenv'
-
+// import dotenv from 'dotenv'
 
 
 const config = {
