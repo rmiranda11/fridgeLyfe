@@ -1,7 +1,9 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
-import dotenv from 'dotenv'
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
+// import dotenv from 'dotenv'
 
 
 
