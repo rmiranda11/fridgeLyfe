@@ -3,3 +3,5 @@
 
 // export const MY_SECRET_KEY = process.env.MY_SECRET_KEY
 // console.log(MY_SECRET_KEY) // => Hello
+
+// this config works for gcloud 
